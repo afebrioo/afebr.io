@@ -1,0 +1,97 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.cat {
+  padding: 28px;
+}
+
+.catName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-bottom: 24px;
+  letter-spacing: 0.2px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skillRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.skillIcon {
+  color: var(--blue-400);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.skillName {
+  font-size: 13px;
+  color: var(--text-2);
+  flex: 1;
+  font-family: var(--font-body);
+}
+
+.skillPct {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  font-family: var(--font-body);
+  letter-spacing: 0.5px;
+}
+
+/* GPU-composited bar — scaleX, not width */
+.bar {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-700), var(--blue-400));
+  border-radius: 2px;
+  will-change: transform;
+}
+
+/* Extras */
+.extras {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.extrasLabel {
+  font-size: 12px;
+  color: var(--text-3);
+  font-family: var(--font-body);
+}
+
+.extrasList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}
