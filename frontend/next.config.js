@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: '/afebr.io',
 };
 
 module.exports = nextConfig;
