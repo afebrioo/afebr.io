@@ -24,7 +24,7 @@ const fadeUp = (i = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
 });
 
 export default function Chat() {
@@ -39,7 +39,12 @@ export default function Chat() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -130,7 +135,7 @@ export default function Chat() {
                 <div className={styles.msgBubble}>
                   <p>{msg.content}</p>
                   <span className={styles.msgTime}>
-                    {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                    {isMounted ? msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : ""}
                   </span>
                 </div>
               </div>
