@@ -11,24 +11,26 @@ const highlights = [
   { icon: Cpu, label: "Stack", value: "Python · React", sub: "FastAPI · TensorFlow" },
 ];
 
+const BASE_PATH = "/afebr.io";
+
 const photos = [
   {
-    src: "/images/afebrio-avatar.jpg",
+    src: `${BASE_PATH}/images/afebrio-avatar.jpg`,
     tag: "Public Speaking",
     title: "Org Leadership & Speaking",
   },
   {
-    src: "/images/afebrio-clapping.jpg",
+    src: `${BASE_PATH}/images/afebrio-clapping.jpg`,
     tag: "Community",
     title: "Student Org & Events",
   },
   {
-    src: "/images/afebrio-guitar.jpg",
+    src: `${BASE_PATH}/images/afebrio-guitar.jpg`,
     tag: "Performance",
     title: "Music & Stage Live",
   },
   {
-    src: "/images/afebrio-presentation.jpg",
+    src: `${BASE_PATH}/images/afebrio-presentation.jpg`,
     tag: "Keynote",
     title: "Chairman Keynote Pitch",
   },
@@ -53,7 +55,7 @@ export default function About() {
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>
                 <img
-                  src="/images/afebrio-avatar.jpg"
+                  src={`${BASE_PATH}/images/afebrio-avatar.jpg`}
                   alt="Afebrio"
                   className={styles.avatarImg}
                 />
