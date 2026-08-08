@@ -49,7 +49,7 @@ export default function About() {
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>
                 <img
-                  src={`${BASE_PATH}/images/afebrio-avatar-cropped.jpg`}
+                  src={`${BASE_PATH}/images/afebrio-avatar-green-mic.jpg?v=3`}
                   alt="Afebrio"
                   className={styles.avatarImg}
                 />
