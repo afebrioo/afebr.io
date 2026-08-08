@@ -18,21 +18,25 @@ const photos = [
     src: `${BASE_PATH}/images/afebrio-avatar.jpg`,
     tag: "Public Speaking",
     title: "Org Leadership & Speaking",
+    objectPosition: "center 15%",
   },
   {
     src: `${BASE_PATH}/images/afebrio-clapping.jpg`,
     tag: "Community",
     title: "Student Org & Events",
+    objectPosition: "75% top",
   },
   {
     src: `${BASE_PATH}/images/afebrio-guitar.jpg`,
     tag: "Performance",
     title: "Music & Stage Live",
+    objectPosition: "center center",
   },
   {
     src: `${BASE_PATH}/images/afebrio-presentation.jpg`,
     tag: "Keynote",
     title: "Chairman Keynote Pitch",
+    objectPosition: "center 20%",
   },
 ];
 
@@ -124,7 +128,12 @@ export default function About() {
                 className={styles.galleryCard}
                 {...fadeUp(i * 0.08 + 0.1)}
               >
-                <img src={item.src} alt={item.title} className={styles.galleryCardImg} />
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className={styles.galleryCardImg}
+                  style={{ objectPosition: item.objectPosition }}
+                />
                 <div className={styles.galleryOverlay}>
                   <span className={styles.galleryTag}>{item.tag}</span>
                   <p className={styles.galleryCaption}>{item.title}</p>
