@@ -11,21 +11,26 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <main>
+      <div className="bg-glow-top" aria-hidden="true" />
+      <div className="bg-glow-mid" aria-hidden="true" />
+
       <Navbar />
       <Hero />
-      <div className="neon-divider" />
+      <div className="divider" />
       <About />
-      <div className="neon-divider" />
+      <div className="divider" />
       <Skills />
-      <div className="neon-divider" />
+      <div className="divider" />
       <Projects />
-      <div className="neon-divider" />
+      <div className="divider" />
       <Experience />
-      <div className="neon-divider" />
+      <div className="divider" />
       <Certifications />
-      <div className="neon-divider" />
-      <Chat />
+      <div className="divider" />
       <Contact />
+
+      {/* Floating Interactive AI Assistant */}
+      <Chat />
     </main>
   );
 }

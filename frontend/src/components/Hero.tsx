@@ -130,7 +130,7 @@ export default function Hero() {
           {/* Name */}
           <motion.h1 className={styles.name} {...fadeUp(0.08)}>
             Rahmanda<br />
-            <span className={styles.nameAccent}>Afebrio</span>
+            <span className="text-gradient">Afebrio</span>
           </motion.h1>
 
           {/* Role */}
@@ -151,7 +151,15 @@ export default function Hero() {
               View Projects
               <ArrowRight size={15} />
             </a>
-            <a href="#chat" className="btn btn-outline" id="hero-ai-chat">
+            <a
+              href="#chat"
+              className="btn btn-outline"
+              id="hero-ai-chat"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new Event("open-ai-chat"));
+              }}
+            >
               Talk to AI Me ✦
             </a>
           </motion.div>

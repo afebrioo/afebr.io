@@ -56,7 +56,13 @@ export default function Navbar() {
               <a
                 href={link.href}
                 className={`${styles.link} ${active === link.href ? styles.active : ""}`}
-                onClick={() => setActive(link.href)}
+                onClick={(e) => {
+                  setActive(link.href);
+                  if (link.href === "#chat") {
+                    e.preventDefault();
+                    window.dispatchEvent(new Event("open-ai-chat"));
+                  }
+                }}
               >
                 {link.label}
               </a>
