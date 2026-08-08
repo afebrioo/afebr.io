@@ -73,6 +73,8 @@ const fadeUp = (i = 0) => ({
   transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
 });
 
+const BASE_PATH = "/afebr.io";
+
 export default function Certifications() {
   return (
     <>
@@ -112,7 +114,7 @@ export default function Certifications() {
       <section id="volunteering" className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <motion.p className="eyebrow" {...fadeUp(0)}>community</motion.p>
-          <motion.h2 className="section-title" {...fadeUp(0.05)}>Volunteering</motion.h2>
+          <motion.h2 className="section-title" {...fadeUp(0.05)}>Volunteering & Community</motion.h2>
 
           <div className={styles.volGrid}>
             {volunteering.map((v, i) => (
@@ -131,6 +133,19 @@ export default function Certifications() {
               </motion.div>
             ))}
           </div>
+
+          {/* Featured Community Outreach Photo */}
+          <motion.div className={styles.volBanner} {...fadeUp(0.3)}>
+            <img
+              src={`${BASE_PATH}/images/afebrio-hublusos.jpg`}
+              alt="Community Service & External Relations"
+              className={styles.bannerImg}
+            />
+            <div className={styles.bannerOverlay}>
+              <span className={styles.bannerTag}>Public Relations & Community Service</span>
+              <p className={styles.bannerTitle}>Directing Community Service & External Relations at Telkom University</p>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>

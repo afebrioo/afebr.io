@@ -15,28 +15,18 @@ const BASE_PATH = "/afebr.io";
 
 const photos = [
   {
-    src: `${BASE_PATH}/images/afebrio-avatar.jpg`,
-    tag: "Public Speaking",
-    title: "Org Leadership & Speaking",
-    objectPosition: "center 15%",
-  },
-  {
-    src: `${BASE_PATH}/images/afebrio-clapping.jpg`,
-    tag: "Community",
-    title: "Student Org & Events",
-    objectPosition: "75% top",
+    src: `${BASE_PATH}/images/afebrio-presentation.jpg`,
+    tag: "Keynote & Leadership",
+    title: "Student Organization Chairman",
+    desc: "Keynote presentation at HMTK Telkom University, leading student initiatives and strategic direction.",
+    objectPosition: "center 20%",
   },
   {
     src: `${BASE_PATH}/images/afebrio-guitar.jpg`,
-    tag: "Performance",
-    title: "Music & Stage Live",
+    tag: "Beyond Code",
+    title: "Creative & Live Music Performance",
+    desc: "Performing electric guitar live on stage, expressing creativity through music alongside engineering.",
     objectPosition: "center center",
-  },
-  {
-    src: `${BASE_PATH}/images/afebrio-presentation.jpg`,
-    tag: "Keynote",
-    title: "Chairman Keynote Pitch",
-    objectPosition: "center 20%",
   },
 ];
 
@@ -59,7 +49,7 @@ export default function About() {
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>
                 <img
-                  src={`${BASE_PATH}/images/afebrio-avatar.jpg`}
+                  src={`${BASE_PATH}/images/afebrio-avatar-cropped.jpg`}
                   alt="Afebrio"
                   className={styles.avatarImg}
                 />
@@ -113,12 +103,12 @@ export default function About() {
           </div>
         </div>
 
-        {/* Gallery Section */}
+        {/* Showcase Section */}
         <motion.div className={styles.galleryWrap} {...fadeUp(0.2)}>
           <div className={styles.galleryHeader}>
             <p className="eyebrow">life & leadership</p>
-            <h3 className={styles.galleryTitle}>Moments & Milestones</h3>
-            <p className={styles.gallerySub}>A glimpse into leadership, public speaking, community initiatives, and creative expression.</p>
+            <h3 className={styles.galleryTitle}>Leadership & Creative Expression</h3>
+            <p className={styles.gallerySub}>Combining engineering precision with student organization leadership and creative drive.</p>
           </div>
 
           <div className={styles.galleryGrid}>
@@ -126,7 +116,7 @@ export default function About() {
               <motion.div
                 key={item.src}
                 className={styles.galleryCard}
-                {...fadeUp(i * 0.08 + 0.1)}
+                {...fadeUp(i * 0.12 + 0.1)}
               >
                 <img
                   src={item.src}
@@ -137,6 +127,7 @@ export default function About() {
                 <div className={styles.galleryOverlay}>
                   <span className={styles.galleryTag}>{item.tag}</span>
                   <p className={styles.galleryCaption}>{item.title}</p>
+                  <p className={styles.galleryDesc}>{item.desc}</p>
                 </div>
               </motion.div>
             ))}

@@ -62,6 +62,8 @@ const fadeUp = (i = 0) => ({
   transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
 });
 
+const BASE_PATH = "/afebr.io";
+
 export default function Experience() {
   return (
     <section id="experience" className="section">
@@ -108,6 +110,19 @@ export default function Experience() {
             </motion.div>
           ))}
         </div>
+
+        {/* Featured Leadership Photo */}
+        <motion.div className={styles.photoBanner} {...fadeUp(0.3)}>
+          <img
+            src={`${BASE_PATH}/images/afebrio-clapping.jpg`}
+            alt="Student Organization Leadership & Events"
+            className={styles.bannerImg}
+          />
+          <div className={styles.bannerOverlay}>
+            <span className={styles.bannerTag}>Organization & Team Leadership</span>
+            <p className={styles.bannerTitle}>Spearheading Student Initiatives & Large-Scale Campus Events</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
