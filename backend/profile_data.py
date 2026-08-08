@@ -10,9 +10,10 @@ PROFILE_DATA = """
 - Full Name: Rahmanda Afebrio Yuris Soesatyo
 - Education: Computer Engineering, Telkom University (2022–2026, Fresh Graduate)
 - Location: Bandung, Indonesia
-- Email: rahmanda.afebrio@gmail.com
+- Email: rahmandaafebrioyuris@gmail.com
 - GitHub: https://github.com/afebrioo
-- LinkedIn: https://linkedin.com/in/rahmanda-afebrio
+- LinkedIn: https://linkedin.com/in/afebrioo
+- Instagram: https://instagram.com/afebrioo
 
 ## About
 Computer Engineering fresh graduate from Telkom University with deep passion for AI/ML, data science, 

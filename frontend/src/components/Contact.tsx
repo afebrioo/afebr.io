@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Send, MapPin } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
 const fadeUp = (i = 0) => ({
@@ -36,9 +36,9 @@ export default function Contact() {
                 <MapPin size={15} className={styles.infoIcon} />
                 <span>Bandung, Indonesia · Remote-friendly</span>
               </div>
-              <a href="mailto:rahmanda.afebrio@gmail.com" className={styles.infoItem} id="contact-email-link">
+              <a href="mailto:rahmandaafebrioyuris@gmail.com" className={styles.infoItem} id="contact-email-link">
                 <Mail size={15} className={styles.infoIcon} />
-                <span>rahmanda.afebrio@gmail.com</span>
+                <span>rahmandaafebrioyuris@gmail.com</span>
               </a>
             </div>
           </motion.div>
@@ -46,13 +46,35 @@ export default function Contact() {
           {/* Right Column */}
           <motion.div className={styles.right} {...fadeUp(0.12)}>
             <div className={styles.linkCards}>
-              <a href="mailto:rahmanda.afebrio@gmail.com" className={`card ${styles.linkCard}`} id="contact-email-card">
+              <a href="mailto:rahmandaafebrioyuris@gmail.com" className={`card ${styles.linkCard}`} id="contact-email-card">
                 <div className={styles.linkIcon} style={{ color: "var(--blue-400)" }}>
                   <Mail size={20} />
                 </div>
                 <div>
                   <p className={styles.linkTitle}>Email</p>
-                  <p className={styles.linkSub}>rahmanda.afebrio@gmail.com</p>
+                  <p className={styles.linkSub}>rahmandaafebrioyuris@gmail.com</p>
+                </div>
+                <Send size={12} className={styles.linkArrow} />
+              </a>
+
+              <a href="https://linkedin.com/in/afebrioo" target="_blank" rel="noopener noreferrer" className={`card ${styles.linkCard}`} id="contact-linkedin-card">
+                <div className={styles.linkIcon} style={{ color: "var(--blue-400)" }}>
+                  <FaLinkedinIn size={20} />
+                </div>
+                <div>
+                  <p className={styles.linkTitle}>LinkedIn</p>
+                  <p className={styles.linkSub}>linkedin.com/in/afebrioo</p>
+                </div>
+                <Send size={12} className={styles.linkArrow} />
+              </a>
+
+              <a href="https://instagram.com/afebrioo" target="_blank" rel="noopener noreferrer" className={`card ${styles.linkCard}`} id="contact-instagram-card">
+                <div className={styles.linkIcon} style={{ color: "var(--blue-400)" }}>
+                  <FaInstagram size={20} />
+                </div>
+                <div>
+                  <p className={styles.linkTitle}>Instagram</p>
+                  <p className={styles.linkSub}>instagram.com/afebrioo</p>
                 </div>
                 <Send size={12} className={styles.linkArrow} />
               </a>
@@ -64,17 +86,6 @@ export default function Contact() {
                 <div>
                   <p className={styles.linkTitle}>GitHub</p>
                   <p className={styles.linkSub}>github.com/afebrioo</p>
-                </div>
-                <Send size={12} className={styles.linkArrow} />
-              </a>
-
-              <a href="https://linkedin.com/in/rahmanda-afebrio" target="_blank" rel="noopener noreferrer" className={`card ${styles.linkCard}`} id="contact-linkedin-card">
-                <div className={styles.linkIcon} style={{ color: "var(--blue-400)" }}>
-                  <FaLinkedinIn size={20} />
-                </div>
-                <div>
-                  <p className={styles.linkTitle}>LinkedIn</p>
-                  <p className={styles.linkSub}>Rahmanda Afebrio</p>
                 </div>
                 <Send size={12} className={styles.linkArrow} />
               </a>
@@ -94,13 +105,13 @@ export default function Contact() {
           <div className="divider" style={{ marginBottom: "28px" }} />
           <div className={styles.footerContent}>
             <p className={styles.footerBrand}>
-              Rahmanda<span style={{ color: "var(--blue-500)" }}>.</span>
+              afebrio<span style={{ color: "var(--blue-500)" }}>.</span>
             </p>
             <p className={styles.footerText}>
               Built with Next.js · FastAPI · LangGraph
             </p>
             <p className={styles.footerCopy}>
-              © {new Date().getFullYear()} Rahmanda Afebrio. All rights reserved.
+              © {new Date().getFullYear()} afebrio. All rights reserved.
             </p>
           </div>
         </div>

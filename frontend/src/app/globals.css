@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* ── Core Palette ──────────────────────────────────── */
@@ -7,32 +7,32 @@
   --bg-card:    rgba(11, 17, 32, 0.75);
   --bg-card-hover: rgba(15, 25, 50, 0.85);
 
-  /* ── Blue Accent ───────────────────────────────────── */
-  --blue-500:   #3b82f6;
-  --blue-400:   #60a5fa;
-  --blue-300:   #93c5fd;
-  --blue-700:   #1d4ed8;
-  --blue-glow:  rgba(59, 130, 246, 0.12);
-  --blue-glow-strong: rgba(59, 130, 246, 0.25);
+  /* ── Blue Accent (Lighter Sky Blue) ────────────────── */
+  --blue-500:   #38bdf8;
+  --blue-400:   #7dd3fc;
+  --blue-300:   #bae6fd;
+  --blue-700:   #0284c7;
+  --blue-glow:  rgba(56, 189, 248, 0.15);
+  --blue-glow-strong: rgba(56, 189, 248, 0.3);
 
   /* ── Text ──────────────────────────────────────────── */
   --text-1: #f1f5f9;
   --text-2: #94a3b8;
   --text-3: #475569;
-  --text-accent: #60a5fa;
+  --text-accent: #38bdf8;
 
   /* ── Borders ───────────────────────────────────────── */
-  --border:       rgba(59, 130, 246, 0.1);
-  --border-hover: rgba(59, 130, 246, 0.3);
+  --border:       rgba(56, 189, 248, 0.15);
+  --border-hover: rgba(56, 189, 248, 0.4);
 
   /* ── Shadows / Glows ───────────────────────────────── */
   --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.3);
-  --glow-sm:  0 0 20px rgba(59,130,246,0.2);
-  --glow-md:  0 0 40px rgba(59,130,246,0.25), 0 0 80px rgba(59,130,246,0.1);
+  --glow-sm:  0 0 20px rgba(56, 189, 248, 0.25);
+  --glow-md:  0 0 40px rgba(56, 189, 248, 0.3), 0 0 80px rgba(56, 189, 248, 0.15);
 
-  /* ── Typography ────────────────────────────────────── */
-  --font-display: 'Syne', sans-serif;
-  --font-sans:    'Plus Jakarta Sans', sans-serif;
+  /* ── Typography (Narrower & Slimmer) ───────────────── */
+  --font-display: 'Outfit', sans-serif;
+  --font-sans:    'Inter', sans-serif;
   --font-body:    'Inter', sans-serif;
 
   /* ── Transitions ───────────────────────────────────── */

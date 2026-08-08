@@ -11,6 +11,29 @@ const highlights = [
   { icon: Cpu, label: "Stack", value: "Python · React", sub: "FastAPI · TensorFlow" },
 ];
 
+const photos = [
+  {
+    src: "/images/afebrio-avatar.jpg",
+    tag: "Public Speaking",
+    title: "Org Leadership & Speaking",
+  },
+  {
+    src: "/images/afebrio-clapping.jpg",
+    tag: "Community",
+    title: "Student Org & Events",
+  },
+  {
+    src: "/images/afebrio-guitar.jpg",
+    tag: "Performance",
+    title: "Music & Stage Live",
+  },
+  {
+    src: "/images/afebrio-presentation.jpg",
+    tag: "Keynote",
+    title: "Chairman Keynote Pitch",
+  },
+];
+
 /* Shared scroll reveal variant */
 const fadeUp = (i = 0) => ({
   initial: { opacity: 0, y: 32 },
@@ -29,7 +52,11 @@ export default function About() {
             {/* Avatar */}
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>
-                <span className={styles.avatarInitials}>RA</span>
+                <img
+                  src="/images/afebrio-avatar.jpg"
+                  alt="Afebrio"
+                  className={styles.avatarImg}
+                />
               </div>
               <div className={styles.avatarRing} />
               <div className={styles.statusBadge}>
@@ -79,6 +106,31 @@ export default function About() {
             </motion.div>
           </div>
         </div>
+
+        {/* Gallery Section */}
+        <motion.div className={styles.galleryWrap} {...fadeUp(0.2)}>
+          <div className={styles.galleryHeader}>
+            <p className="eyebrow">life & leadership</p>
+            <h3 className={styles.galleryTitle}>Moments & Milestones</h3>
+            <p className={styles.gallerySub}>A glimpse into leadership, public speaking, community initiatives, and creative expression.</p>
+          </div>
+
+          <div className={styles.galleryGrid}>
+            {photos.map((item, i) => (
+              <motion.div
+                key={item.src}
+                className={styles.galleryCard}
+                {...fadeUp(i * 0.08 + 0.1)}
+              >
+                <img src={item.src} alt={item.title} className={styles.galleryCardImg} />
+                <div className={styles.galleryOverlay}>
+                  <span className={styles.galleryTag}>{item.tag}</span>
+                  <p className={styles.galleryCaption}>{item.title}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

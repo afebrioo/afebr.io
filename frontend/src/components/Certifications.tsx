@@ -10,28 +10,28 @@ const certs = [
     title: "Getting Started with Data",
     issuer: "IBM",
     date: "Jul 2026",
-    link: "https://linkedin.com/in/rahmanda-afebrio",
+    link: "https://linkedin.com/in/afebrioo",
   },
   {
     id: "nvidia-dl",
     title: "Fundamentals of Deep Learning",
     issuer: "NVIDIA",
     date: "Oct 2025",
-    link: "https://linkedin.com/in/rahmanda-afebrio",
+    link: "https://linkedin.com/in/afebrioo",
   },
   {
     id: "dicoding-viz",
     title: "Belajar Dasar Visualisasi Data",
     issuer: "Dicoding",
     date: "Feb 2025",
-    link: "https://linkedin.com/in/rahmanda-afebrio",
+    link: "https://linkedin.com/in/afebrioo",
   },
   {
     id: "telkom-english",
     title: "English Communicative Competence Test",
     issuer: "Telkom University",
     date: "Oct 2025",
-    link: "https://linkedin.com/in/rahmanda-afebrio",
+    link: "https://linkedin.com/in/afebrioo",
   },
 ];
 

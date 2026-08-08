@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className={`container ${styles.inner}`}>
         {/* Logo */}
         <a href="#hero" className={styles.logo}>
-          Rahmanda<span className={styles.logoDot}>.</span>
+          afebrio<span className={styles.logoDot}>.</span>
         </a>
 
         {/* Links */}

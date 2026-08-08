@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import styles from "./Hero.module.css";
 
 const roles = [
@@ -162,9 +162,13 @@ export default function Hero() {
                className={styles.social} id="hero-github" aria-label="GitHub">
               <FaGithub size={17} />
             </a>
-            <a href="https://linkedin.com/in/rahmanda-afebrio" target="_blank" rel="noopener noreferrer"
+            <a href="https://linkedin.com/in/afebrioo" target="_blank" rel="noopener noreferrer"
                className={styles.social} id="hero-linkedin" aria-label="LinkedIn">
               <FaLinkedinIn size={17} />
+            </a>
+            <a href="https://instagram.com/afebrioo" target="_blank" rel="noopener noreferrer"
+               className={styles.social} id="hero-instagram" aria-label="Instagram">
+              <FaInstagram size={17} />
             </a>
             <span className={styles.socialBar} />
             <span className={styles.socialMeta}>Bandung, Indonesia</span>
