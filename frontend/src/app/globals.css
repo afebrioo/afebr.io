@@ -1,43 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* ── Core Palette (Cyber Obsidian Slate) ───────────── */
-  --bg-base:       #080c17;
-  --bg-surface:    #0e1526;
-  --bg-card:       rgba(14, 21, 38, 0.82);
-  --bg-card-hover: rgba(18, 28, 50, 0.92);
+  /* ── Core Palette (Luxury Midnight Graphite) ────────── */
+  --bg-base:       #0b0f17;
+  --bg-surface:    #111622;
+  --bg-card:       rgba(17, 22, 34, 0.85);
+  --bg-card-hover: rgba(22, 29, 44, 0.92);
 
-  /* ── Cyber Accents (Electric Cyan + Aurora Violet) ─── */
-  --cyan-400:   #38ef7d;
-  --blue-500:   #00e5ff;
-  --blue-400:   #67e8f9;
-  --blue-300:   #a5f3fc;
-  --blue-700:   #0284c7;
+  /* ── Luxury Accents (Warm Gold & Champagne Amber) ──── */
+  --amber-300:   #fde68a;
+  --amber-400:   #fbbf24;
+  --amber-500:   #f59e0b;
+  --amber-600:   #d97706;
+  --amber-700:   #b45309;
 
-  --violet-500: #8b5cf6;
-  --violet-400: #c4b5fd;
-  --violet-600: #7c3aed;
+  --blue-500:   #f59e0b;
+  --blue-400:   #fbbf24;
+  --blue-300:   #fde68a;
+  --blue-700:   #d97706;
 
-  --accent-gradient: linear-gradient(135deg, #00e5ff 0%, #a78bfa 100%);
-  --accent-gradient-hover: linear-gradient(135deg, #00b8d4 0%, #7c3aed 100%);
+  --accent-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
 
-  --blue-glow:  rgba(0, 229, 255, 0.15);
-  --blue-glow-strong: rgba(0, 229, 255, 0.35);
+  --blue-glow:  rgba(245, 158, 11, 0.15);
+  --blue-glow-strong: rgba(245, 158, 11, 0.35);
 
   /* ── Text ──────────────────────────────────────────── */
-  --text-1: #f8fafc;
+  --text-1: #ffffff;
   --text-2: #94a3b8;
-  --text-3: #475569;
-  --text-accent: #00e5ff;
+  --text-3: #64748b;
+  --text-accent: #fbbf24;
 
   /* ── Borders ───────────────────────────────────────── */
-  --border:       rgba(0, 229, 255, 0.18);
-  --border-hover: rgba(139, 92, 246, 0.45);
+  --border:       rgba(245, 158, 11, 0.16);
+  --border-hover: rgba(251, 191, 36, 0.45);
 
   /* ── Shadows / Glows ───────────────────────────────── */
   --shadow-card: 0 8px 32px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4);
-  --glow-sm:  0 0 24px rgba(0, 229, 255, 0.22);
-  --glow-md:  0 0 44px rgba(139, 92, 246, 0.28), 0 0 88px rgba(0, 229, 255, 0.15);
+  --glow-sm:  0 0 24px rgba(245, 158, 11, 0.2);
+  --glow-md:  0 0 44px rgba(251, 191, 36, 0.25), 0 0 88px rgba(245, 158, 11, 0.12);
 
   /* ── Typography ────────────────────────────────────── */
   --font-display: 'Outfit', sans-serif;
@@ -95,8 +96,8 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(245, 158, 11, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 158, 11, 0.025) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -107,8 +108,8 @@ body {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(129, 140, 248, 0.04) 50%, transparent 70%);
-  filter: blur(60px);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(217, 119, 6, 0.03) 50%, transparent 70%);
+  filter: blur(80px);
   pointer-events: none;
   z-index: 0;
 }
@@ -120,8 +121,8 @@ body {
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, rgba(56, 189, 248, 0.03) 55%, transparent 75%);
-  filter: blur(80px);
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.06) 0%, rgba(245, 158, 11, 0.02) 55%, transparent 75%);
+  filter: blur(90px);
   pointer-events: none;
   z-index: 0;
 }
