@@ -120,66 +120,89 @@ export default function Hero() {
       <div className={styles.blobRight} aria-hidden="true" />
 
       <div className="container">
-        <div className={styles.content}>
-          {/* Eyebrow */}
-          <motion.div className={styles.eyebrow} {...fadeUp(0)}>
-            <span className={styles.dot} />
-            Available for opportunities
-          </motion.div>
+        <div className={styles.heroGrid}>
+          {/* Left Column: Text & CTAs */}
+          <div className={styles.leftCol}>
+            {/* Eyebrow */}
+            <motion.div className={styles.eyebrow} {...fadeUp(0)}>
+              <span className={styles.dot} />
+              Available for AI & Software Roles
+            </motion.div>
 
-          {/* Name */}
-          <motion.h1 className={styles.name} {...fadeUp(0.08)}>
-            Rahmanda<br />
-            <span className="text-gradient">Afebrio</span>
-          </motion.h1>
+            {/* Single-Line Name */}
+            <motion.h1 className={styles.name} {...fadeUp(0.08)}>
+              Rahmanda <span className="text-gradient">Afebrio</span>
+            </motion.h1>
 
-          {/* Role */}
-          <motion.div className={styles.role} {...fadeUp(0.16)}>
-            <TypingText words={roles} />
-          </motion.div>
+            {/* Role */}
+            <motion.div className={styles.role} {...fadeUp(0.16)}>
+              <TypingText words={roles} />
+            </motion.div>
 
-          {/* Bio */}
-          <motion.p className={styles.bio} {...fadeUp(0.22)}>
-            Computer Engineering graduate from Telkom University.
-            Building intelligent systems at the intersection of AI,
-            data, and full-stack engineering.
-          </motion.p>
+            {/* Bio */}
+            <motion.p className={styles.bio} {...fadeUp(0.22)}>
+              Computer Engineering graduate from Telkom University.
+              Building intelligent systems at the intersection of AI,
+              data, and full-stack engineering.
+            </motion.p>
 
-          {/* CTA */}
-          <motion.div className={styles.actions} {...fadeUp(0.3)}>
-            <a href="#projects" className="btn btn-primary" id="hero-view-projects">
-              View Projects
-              <ArrowRight size={15} />
-            </a>
-            <a
-              href="#chat"
-              className="btn btn-outline"
-              id="hero-ai-chat"
-              onClick={(e) => {
-                e.preventDefault();
-                window.dispatchEvent(new Event("open-ai-chat"));
-              }}
-            >
-              Talk to AI Me ✦
-            </a>
-          </motion.div>
+            {/* CTA */}
+            <motion.div className={styles.actions} {...fadeUp(0.3)}>
+              <a href="#projects" className="btn btn-primary" id="hero-view-projects">
+                View Projects
+                <ArrowRight size={15} />
+              </a>
+              <a
+                href="#chat"
+                className="btn btn-outline"
+                id="hero-ai-chat"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new Event("open-ai-chat"));
+                }}
+              >
+                Talk to AI Me ✦
+              </a>
+            </motion.div>
 
-          {/* Socials */}
-          <motion.div className={styles.socials} {...fadeUp(0.38)}>
-            <a href="https://github.com/afebrioo" target="_blank" rel="noopener noreferrer"
-               className={styles.social} id="hero-github" aria-label="GitHub">
-              <FaGithub size={17} />
-            </a>
-            <a href="https://linkedin.com/in/afebrioo" target="_blank" rel="noopener noreferrer"
-               className={styles.social} id="hero-linkedin" aria-label="LinkedIn">
-              <FaLinkedinIn size={17} />
-            </a>
-            <a href="https://instagram.com/afebrioo" target="_blank" rel="noopener noreferrer"
-               className={styles.social} id="hero-instagram" aria-label="Instagram">
-              <FaInstagram size={17} />
-            </a>
-            <span className={styles.socialBar} />
-            <span className={styles.socialMeta}>Bandung, Indonesia</span>
+            {/* Socials */}
+            <motion.div className={styles.socials} {...fadeUp(0.38)}>
+              <a href="https://github.com/afebrioo" target="_blank" rel="noopener noreferrer"
+                 className={styles.social} id="hero-github" aria-label="GitHub">
+                <FaGithub size={17} />
+              </a>
+              <a href="https://linkedin.com/in/afebrioo" target="_blank" rel="noopener noreferrer"
+                 className={styles.social} id="hero-linkedin" aria-label="LinkedIn">
+                <FaLinkedinIn size={17} />
+              </a>
+              <a href="https://instagram.com/afebrioo" target="_blank" rel="noopener noreferrer"
+                 className={styles.social} id="hero-instagram" aria-label="Instagram">
+                <FaInstagram size={17} />
+              </a>
+              <span className={styles.socialBar} />
+              <span className={styles.socialMeta}>Bandung, Indonesia</span>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Hero Portrait Photo Card */}
+          <motion.div className={styles.rightCol} {...fadeUp(0.2)}>
+            <div className={styles.portraitCard}>
+              <div className={styles.portraitGlowRing} />
+              <img
+                src="/afebr.io/images/afebrio-wa-141453-avatar.jpg?v=6"
+                alt="Rahmanda Afebrio"
+                className={styles.portraitImg}
+              />
+              
+              {/* Floating badges */}
+              <div className={`${styles.floatBadge} ${styles.floatTopRight}`}>
+                <span className={styles.badgeDot} />
+                Telkom University
+              </div>
+              <div className={`${styles.floatBadge} ${styles.floatBottomLeft}`}>
+                AI & Data Eng
+              </div>
+            </div>
           </motion.div>
         </div>
 
