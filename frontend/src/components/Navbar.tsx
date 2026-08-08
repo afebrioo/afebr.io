@@ -72,7 +72,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="/cv-rahmanda.pdf"
+          href="https://drive.google.com/file/d/17yf85y8BujmJ6rIy5vezLZzZrrvOAozk/view"
           className={`btn btn-outline ${styles.cta}`}
           target="_blank"
           rel="noopener noreferrer"
