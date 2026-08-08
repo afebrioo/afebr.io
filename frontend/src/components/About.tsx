@@ -15,14 +15,21 @@ const BASE_PATH = "/afebr.io";
 
 const photos = [
   {
-    src: `${BASE_PATH}/images/afebrio-presentation.jpg`,
+    src: `${BASE_PATH}/images/afebrio-green-mic-full.jpg?v=4`,
+    tag: "Public Relations & Community Service",
+    title: "Directing Community Service & External Relations",
+    desc: "Directing community initiatives, external partnerships, and public relations at Telkom University.",
+    objectPosition: "center 20%",
+  },
+  {
+    src: `${BASE_PATH}/images/afebrio-presentation.jpg?v=4`,
     tag: "Keynote & Leadership",
     title: "Student Organization Chairman",
     desc: "Keynote presentation at HMTK Telkom University, leading student initiatives and strategic direction.",
     objectPosition: "center 20%",
   },
   {
-    src: `${BASE_PATH}/images/afebrio-guitar.jpg`,
+    src: `${BASE_PATH}/images/afebrio-guitar.jpg?v=4`,
     tag: "Beyond Code",
     title: "Creative & Live Music Performance",
     desc: "Performing electric guitar live on stage, expressing creativity through music alongside engineering.",

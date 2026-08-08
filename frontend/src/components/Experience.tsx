@@ -114,7 +114,7 @@ export default function Experience() {
         {/* Featured Leadership Photo */}
         <motion.div className={styles.photoBanner} {...fadeUp(0.3)}>
           <img
-            src={`${BASE_PATH}/images/afebrio-clapping.jpg`}
+            src={`${BASE_PATH}/images/afebrio-clapping.jpg?v=4`}
             alt="Student Organization Leadership & Events"
             className={styles.bannerImg}
           />
