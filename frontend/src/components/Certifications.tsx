@@ -137,7 +137,7 @@ export default function Certifications() {
           {/* Featured Community Outreach Photo */}
           <motion.div className={styles.volBanner} {...fadeUp(0.3)}>
             <img
-              src={`${BASE_PATH}/images/afebrio-green-mic-full.jpg?v=4`}
+              src={`${BASE_PATH}/images/afebrio-wa-141453-full.jpg?v=5`}
               alt="Community Service & External Relations"
               className={styles.bannerImg}
             />
