@@ -84,15 +84,14 @@ export default function Skills() {
                       <span className={styles.skillName}>{name}</span>
                       <span className={styles.skillPct}>{level}%</span>
                     </div>
-                    {/* GPU-optimized: scaleX instead of width */}
+                    {/* Glowing progress bar */}
                     <div className={styles.bar}>
                       <motion.div
                         className={styles.fill}
-                        style={{ transformOrigin: "left", width: `${level}%` }}
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true, margin: "-60px" }}
-                        transition={{ duration: 1.1, delay: si * 0.06 + ci * 0.1, ease: [0.16, 1, 0.3, 1] as const }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: si * 0.05 + ci * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
                       />
                     </div>
                   </li>
