@@ -2,39 +2,41 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 6px;
-  height: 6px;
-  background: var(--text-dark);
+  width: 8px;
+  height: 8px;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8, 0 0 20px rgba(56, 189, 248, 0.8);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
-  margin-top: -3px;
-  margin-left: -3px;
-  transition: opacity 0.2s;
+  z-index: 999999;
+  margin-top: -4px;
+  margin-left: -4px;
+  transition: transform 0.05s linear, opacity 0.2s;
 }
 
 .ring {
   position: fixed;
   top: 0;
   left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid var(--text-dark);
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
-  margin-top: -16px;
-  margin-left: -16px;
-  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease, border-color 0.3s ease;
-  mix-blend-mode: multiply;
+  z-index: 999998;
+  margin-top: -18px;
+  margin-left: -18px;
+  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .enlarged {
-  width: 56px;
-  height: 56px;
-  margin-top: -28px;
-  margin-left: -28px;
-  border-color: var(--text-mid);
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-color: #818cf8;
+  background-color: rgba(56, 189, 248, 0.08);
 }
 
 @media (hover: none) {
