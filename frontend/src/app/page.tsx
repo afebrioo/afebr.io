@@ -7,29 +7,20 @@ import Experience from "@/components/Experience";
 import Certifications from "@/components/Certifications";
 import Chat from "@/components/Chat";
 import Contact from "@/components/Contact";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   return (
     <main>
-      <div className="bg-glow-top" aria-hidden="true" />
-      <div className="bg-glow-mid" aria-hidden="true" />
-
+      <CustomCursor />
       <Navbar />
       <Hero />
-      <div className="divider" />
       <About />
-      <div className="divider" />
-      <Skills />
-      <div className="divider" />
       <Projects />
-      <div className="divider" />
+      <Skills />
       <Experience />
-      <div className="divider" />
       <Certifications />
-      <div className="divider" />
       <Contact />
-
-      {/* Floating Interactive AI Assistant */}
       <Chat />
     </main>
   );

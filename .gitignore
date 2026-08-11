@@ -35,12 +35,13 @@ yarn-error.log*
 *.sw?
 
 # OS files
-.DS_Store
-Thumbs.db
-
 # Python backend virtual environments & cache
 backend/venv/
 backend/.env
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Raw uncompressed video/photo asset storage
+assetfotovideo/
+

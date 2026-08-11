@@ -1,145 +1,82 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap, Cpu, Brain } from "lucide-react";
 import styles from "./About.module.css";
-
-const highlights = [
-  { icon: GraduationCap, label: "Education", value: "Telkom University", sub: "Computer Engineering '26" },
-  { icon: MapPin, label: "Location", value: "Bandung, Indonesia", sub: "Open to Remote" },
-  { icon: Brain, label: "Focus", value: "AI / ML", sub: "Data Science & Systems" },
-  { icon: Cpu, label: "Stack", value: "Python · React", sub: "FastAPI · TensorFlow" },
-];
 
 const BASE_PATH = "/afebr.io";
 
-const photos = [
+const philosophies = [
   {
-    src: `${BASE_PATH}/images/afebrio-wa-141453-full.jpg?v=5`,
-    tag: "Public Relations & Community Service",
-    title: "Directing Community Service & External Relations",
-    desc: "Directing community initiatives, external partnerships, and public relations at Telkom University.",
-    objectPosition: "center 20%",
+    num: "01",
+    text: "I love to turn complex data into intelligent, scalable, and actionable solutions.",
   },
   {
-    src: `${BASE_PATH}/images/afebrio-presentation.jpg?v=5`,
-    tag: "Keynote & Leadership",
-    title: "Student Organization Chairman",
-    desc: "Keynote presentation at HMTK Telkom University, leading student initiatives and strategic direction.",
-    objectPosition: "center 20%",
+    num: "02",
+    text: "I believe every system should be built with performance and real-world impact in mind.",
   },
   {
-    src: `${BASE_PATH}/images/afebrio-guitar.jpg?v=5`,
-    tag: "Beyond Code",
-    title: "Creative & Live Music Performance",
-    desc: "Performing electric guitar live on stage, expressing creativity through music alongside engineering.",
-    objectPosition: "center center",
+    num: "03",
+    text: "I am passionate about bridging the gap between raw data and human insight.",
   },
 ];
 
-/* Shared scroll reveal variant */
-const fadeUp = (i = 0) => ({
+const inView = (i = 0) => ({
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.65, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
+  transition: { duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] as const },
 });
 
 export default function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section-dark">
       <div className="container">
         <div className={styles.grid}>
-          {/* Left column */}
-          <motion.div className={styles.left} {...fadeUp(0)}>
-            {/* Avatar */}
-            <div className={styles.avatarWrap}>
-              <div className={styles.avatar}>
-                <img
-                  src={`${BASE_PATH}/images/afebrio-wa-141453-avatar.jpg?v=5`}
-                  alt="Afebrio"
-                  className={styles.avatarImg}
-                />
-              </div>
-              <div className={styles.avatarRing} />
-              <div className={styles.statusBadge}>
-                <span className={styles.statusDot} />
-                Fresh Graduate
-              </div>
-            </div>
-
-            {/* Highlights */}
-            <div className={styles.highlights}>
-              {highlights.map(({ icon: Icon, label, value, sub }, i) => (
-                <motion.div key={label} className={`card ${styles.highlight}`} {...fadeUp(i * 0.05 + 0.1)}>
-                  <div className={styles.hlIcon}>
-                    <Icon size={15} />
-                  </div>
-                  <div>
-                    <p className={styles.hlLabel}>{label}</p>
-                    <p className={styles.hlValue}>{value}</p>
-                    <p className={styles.hlSub}>{sub}</p>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Left: Photo */}
+          <motion.div className={styles.photoWrap} {...inView(0)}>
+            <img
+              src={`${BASE_PATH}/images/afebrio-profpic.jpg`}
+              alt="Rahmanda Afebrio"
+              className={styles.photo}
+            />
+            <div className={styles.photoMeta}>
+              <span className="section-label-light">Rahmanda Afebrio</span>
+              <span className={styles.metaDot} />
+              <span className="section-label-light">Bandung, Indonesia</span>
             </div>
           </motion.div>
 
-          {/* Right column */}
+          {/* Right: Philosophy + CTA */}
           <div className={styles.right}>
-            <motion.p className="eyebrow" {...fadeUp(0.05)}>whoami</motion.p>
-            <motion.h2 className={`section-title ${styles.title}`} {...fadeUp(0.1)}>
-              About Me
-            </motion.h2>
+            <motion.p className="section-label-light" {...inView(0)}>
+              About
+            </motion.p>
 
-            {[
-              <>I&apos;m a <strong>Computer Engineering</strong> fresh graduate from Telkom University (Class of 2026), with a deep passion for building intelligent systems that bridge the gap between raw data and real-world impact.</>,
-              <>My journey evolved from tinkering with algorithms into building production AI — from dental X-ray CNNs achieving <strong>91.18% accuracy</strong> with EfficientNetB0, to commodity forecasting with XGBoost + Prophet, to real-time traffic detection using YOLOv8.</>,
-              <>Beyond code, I led student organizations, spearheaded community service programs with <strong>GOJEK</strong> sponsorship, and served as Lab Assistant shaping junior engineers — combining technical depth with leadership.</>,
-              <>Currently deep-diving into <strong>LangGraph</strong> and agentic AI, building this portfolio as proof of work.</>,
-            ].map((para, i) => (
-              <motion.p key={i} className={styles.para} {...fadeUp(0.15 + i * 0.05)}>
-                {para}
-              </motion.p>
-            ))}
+            <div className={styles.philosophies}>
+              {philosophies.map(({ num, text }, i) => (
+                <motion.div key={num} className={styles.philosophyItem} {...inView(i * 0.1 + 0.1)}>
+                  <div className="dashed-line-dark" />
+                  <div className={styles.philosophyRow}>
+                    <span className={styles.philosophyNum}>{num}</span>
+                    <p className={styles.philosophyText}>{text}</p>
+                  </div>
+                </motion.div>
+              ))}
+              <div className="dashed-line-dark" />
+            </div>
 
-            <motion.div className={styles.ctas} {...fadeUp(0.35)}>
-              <a href="#contact" className="btn btn-primary" id="about-contact-cta">Let&apos;s Connect</a>
-              <a href="#projects" className="btn btn-outline" id="about-projects-cta">See My Work</a>
+            <motion.div className={styles.ctaRow} {...inView(0.5)}>
+              <a href="#contact" className="cta-circle-dark" id="about-contact-cta">
+                DISCOVER<br />MORE
+              </a>
+              <div className={styles.ctaInfo}>
+                <p className={styles.ctaTitle}>Computer Engineering</p>
+                <p className={styles.ctaSub}>Telkom University · Class of 2026</p>
+                <p className={styles.ctaSub}>AI / ML · Data Science · Full-Stack</p>
+              </div>
             </motion.div>
           </div>
         </div>
-
-        {/* Showcase Section */}
-        <motion.div className={styles.galleryWrap} {...fadeUp(0.2)}>
-          <div className={styles.galleryHeader}>
-            <p className="eyebrow">life & leadership</p>
-            <h3 className={styles.galleryTitle}>Leadership & Creative Expression</h3>
-            <p className={styles.gallerySub}>Combining engineering precision with student organization leadership and creative drive.</p>
-          </div>
-
-          <div className={styles.galleryGrid}>
-            {photos.map((item, i) => (
-              <motion.div
-                key={item.src}
-                className={styles.galleryCard}
-                {...fadeUp(i * 0.12 + 0.1)}
-              >
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className={styles.galleryCardImg}
-                  style={{ objectPosition: item.objectPosition }}
-                />
-                <div className={styles.galleryOverlay}>
-                  <span className={styles.galleryTag}>{item.tag}</span>
-                  <p className={styles.galleryCaption}>{item.title}</p>
-                  <p className={styles.galleryDesc}>{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

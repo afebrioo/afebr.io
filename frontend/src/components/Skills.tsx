@@ -1,114 +1,103 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiOpencv,
-  SiPandas, SiNumpy, SiStreamlit, SiMysql,
-  SiReact, SiNextdotjs, SiFastapi, SiLaravel,
-  SiGit, SiJupyter, SiDocker, SiLinux,
-} from "react-icons/si";
-import { BarChart2 } from "lucide-react";
 import styles from "./Skills.module.css";
 
-const categories = [
+const skills = [
   {
-    name: "AI / Machine Learning",
-    skills: [
-      { name: "Python",      icon: SiPython,      level: 95 },
-      { name: "TensorFlow",  icon: SiTensorflow,  level: 85 },
-      { name: "PyTorch",     icon: SiPytorch,     level: 75 },
-      { name: "Scikit-learn",icon: SiScikitlearn, level: 88 },
-      { name: "OpenCV",      icon: SiOpencv,      level: 80 },
-    ],
+    id: "python-java",
+    name: "Python / Java",
+    desc: "Core languages for data science, AI modeling, and enterprise backends.",
   },
   {
-    name: "Data Science",
-    skills: [
-      { name: "Pandas",    icon: SiPandas,    level: 92 },
-      { name: "NumPy",     icon: SiNumpy,     level: 90 },
-      { name: "Power BI",  icon: BarChart2,   level: 78 },
-      { name: "Streamlit", icon: SiStreamlit, level: 82 },
-      { name: "MySQL",     icon: SiMysql,     level: 80 },
-    ],
+    id: "typescript-js",
+    name: "TypeScript / JavaScript",
+    desc: "Building scalable, type-safe, and high-performance web applications.",
   },
   {
-    name: "Web / Backend",
-    skills: [
-      { name: "React",   icon: SiReact,     level: 82 },
-      { name: "Next.js", icon: SiNextdotjs, level: 78 },
-      { name: "FastAPI", icon: SiFastapi,   level: 85 },
-      { name: "Laravel", icon: SiLaravel,   level: 75 },
-    ],
+    id: "nextjs-react",
+    name: "Next.js / React.js",
+    desc: "Modern frontend frameworks for interactive and dynamic user interfaces.",
   },
   {
-    name: "Tools & Infra",
-    skills: [
-      { name: "Git",     icon: SiGit,     level: 90 },
-      { name: "Jupyter", icon: SiJupyter, level: 93 },
-      { name: "Docker",  icon: SiDocker,  level: 65 },
-      { name: "Linux",   icon: SiLinux,   level: 72 },
-    ],
+    id: "sql-postgresql",
+    name: "SQL / PostgreSQL",
+    desc: "Advanced relational database management and complex query optimization.",
+  },
+  {
+    id: "eda-data",
+    name: "EDA / Data Cleaning",
+    desc: "Exploratory data analysis, wrangling, and preparing datasets for modeling.",
+  },
+  {
+    id: "tensorflow-keras",
+    name: "TensorFlow / Keras",
+    desc: "Deep learning model development, training, and production deployment.",
+  },
+  {
+    id: "fastapi-langchain",
+    name: "FastAPI / LangChain",
+    desc: "High-performance AI APIs and LLM orchestration for agentic systems.",
+  },
+  {
+    id: "yolo-opencv",
+    name: "YOLOv8 / OpenCV",
+    desc: "Real-time computer vision, object detection, and image processing pipelines.",
+  },
+  {
+    id: "docker-linux",
+    name: "Docker / Linux",
+    desc: "Containerization, deployment pipelines, and server environment management.",
+  },
+  {
+    id: "tableau-powerbi",
+    name: "Tableau / Power BI",
+    desc: "Business intelligence dashboards and data visualization for stakeholders.",
   },
 ];
 
-const extras = ["XGBoost", "YOLOv8", "LSTM", "Prophet", "LangGraph", "LangChain", "ETL/ELT", "Big Data Analytics"];
-
-const fadeUp = (i = 0) => ({
-  initial: { opacity: 0, y: 28 },
+const inView = (i = 0) => ({
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.55, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] as const },
 });
+
+const marqueeItems = [
+  "SKILLS", "—", "MY SKILLS & TOOLS", "—",
+  "SKILLS", "—", "MY SKILLS & TOOLS", "—",
+  "SKILLS", "—", "MY SKILLS & TOOLS", "—",
+  "SKILLS", "—", "MY SKILLS & TOOLS", "—",
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section-light">
+      {/* Marquee header */}
+      <div className={styles.marqueeWrap}>
+        <div className="marquee-track" style={{ animationDuration: "18s" }}>
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className={item === "—" ? "marquee-item-light marquee-sep-light" : "marquee-item-light"}>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
       <div className="container">
-        <motion.p className="eyebrow" {...fadeUp(0)}>tech stack</motion.p>
-        <motion.h2 className="section-title" {...fadeUp(0.05)}>Skills & Tools</motion.h2>
+        <div className={styles.header}>
+          <p className="section-label">THESE ARE JUST MY MOST SIGNIFICANT SKILLS</p>
+        </div>
 
         <div className={styles.grid}>
-          {categories.map((cat, ci) => (
-            <motion.div
-              key={cat.name}
-              className={`card ${styles.cat}`}
-              {...fadeUp(ci * 0.1)}
-            >
-              <h3 className={styles.catName}>{cat.name}</h3>
-
-              <ul className={styles.list}>
-                {cat.skills.map(({ name, icon: Icon, level }, si) => (
-                  <li key={name} className={styles.skill}>
-                    <div className={styles.skillRow}>
-                      <span className={styles.skillIcon}><Icon size={15} /></span>
-                      <span className={styles.skillName}>{name}</span>
-                      <span className={styles.skillPct}>{level}%</span>
-                    </div>
-                    {/* Glowing progress bar */}
-                    <div className={styles.bar}>
-                      <motion.div
-                        className={styles.fill}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: si * 0.05 + ci * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
-                      />
-                    </div>
-                  </li>
-                ))}
-              </ul>
+          {skills.map((skill, i) => (
+            <motion.div key={skill.id} className={styles.card} id={`skill-${skill.id}`} {...inView(i * 0.04)}>
+              <h3 className={styles.skillName}>{skill.name}</h3>
+              <p className={styles.skillDesc}>{skill.desc}</p>
+              <div className={styles.cardLine} />
             </motion.div>
           ))}
         </div>
-
-        <motion.div className={styles.extras} {...fadeUp(0.4)}>
-          <span className={styles.extrasLabel}>Also working with</span>
-          <div className={styles.extrasList}>
-            {extras.map((t) => (
-              <span key={t} className="badge badge-subtle">{t}</span>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

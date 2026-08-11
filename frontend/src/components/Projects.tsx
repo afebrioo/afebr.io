@@ -1,138 +1,190 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Tag } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
 import styles from "./Projects.module.css";
+
+const BASE_PATH = "/afebr.io";
 
 const projects = [
   {
     id: "sigigi",
+    num: "01",
     name: "SIGIGI 2.0",
-    tagline: "AI-Powered Dental Clinic Management",
+    role: "AI Engineer & Full-Stack Developer",
+    tagline: "AI-Powered Dental Clinic Management System",
     description:
-      "Full-stack clinic system with CNN-based X-ray diagnosis using EfficientNetB0 — achieving 91.18% accuracy. Built with Laravel, React, MySQL, FastAPI, and TensorFlow.",
+      "Full-stack clinic management platform with CNN-based X-ray diagnosis using EfficientNetB0 — achieving 91.18% accuracy. Built with Laravel, React, MySQL, FastAPI, and TensorFlow.",
+    image: `${BASE_PATH}/images/sigigi-landing.png`,
+    hasImage: true,
     tags: ["FastAPI", "TensorFlow", "CNN", "React", "Laravel"],
-    badge: "91.18% Accuracy",
     github: "https://github.com/afebrioo",
-    featured: true,
+    total: "06",
   },
   {
     id: "commodity-forecast",
+    num: "02",
     name: "Commodity Forecasting",
-    tagline: "Kementerian Perdagangan RI Internship",
+    role: "Data Scientist · Kemendag RI Internship",
+    tagline: "Multi-Model Price Forecasting for Government",
     description:
-      "Multi-model price forecasting using XGBoost, Random Forest, Prophet, and LSTM. Delivered analytics dashboard for government stakeholders.",
+      "Multi-model price forecasting system using XGBoost, Random Forest, Prophet, and LSTM for Kementerian Perdagangan RI. Delivered interactive analytics dashboard for government stakeholders.",
+    image: null,
+    hasImage: false,
     tags: ["XGBoost", "Prophet", "LSTM", "Python"],
-    badge: "Gov. Internship",
     github: null,
-    featured: false,
+    total: "06",
   },
   {
     id: "bigdata-etl",
+    num: "03",
     name: "Big Data Pipeline",
-    tagline: "End-to-End Data Engineering",
+    role: "Data Engineer",
+    tagline: "End-to-End Scalable ETL Architecture",
     description:
-      "Scalable ETL & ELT pipeline processing large-scale datasets with interactive analytics dashboard.",
-    tags: ["ETL", "ELT", "Big Data", "Python"],
-    badge: "Data Eng.",
+      "Scalable ETL & ELT pipeline processing large-scale datasets with interactive analytics dashboard and real-time monitoring capabilities.",
+    image: null,
+    hasImage: false,
+    tags: ["ETL", "ELT", "Big Data", "Python", "Airflow"],
     github: "https://github.com/afebrioo",
-    featured: false,
+    total: "06",
   },
   {
     id: "sysrec",
+    num: "04",
     name: "Sysrec",
-    tagline: "Export Potential Predictor",
+    role: "ML Researcher",
+    tagline: "Export Potential Predictor with Random Forest",
     description:
-      "Random Forest model to predict commodity export potential, with comprehensive EDA and feature engineering in Jupyter.",
-    tags: ["Random Forest", "Scikit-learn", "Jupyter"],
-    badge: "ML Research",
+      "Machine learning model to predict commodity export potential using Random Forest, with comprehensive EDA and feature engineering in Jupyter.",
+    image: null,
+    hasImage: false,
+    tags: ["Random Forest", "Scikit-learn", "Jupyter", "EDA"],
     github: "https://github.com/afebrioo",
-    featured: false,
+    total: "06",
   },
   {
     id: "traffic-sign",
+    num: "05",
     name: "Traffic Sign Detector",
-    tagline: "Real-Time Computer Vision",
+    role: "Computer Vision Engineer",
+    tagline: "Real-Time Detection Using YOLOv8",
     description:
-      "Real-time traffic sign detection and classification using YOLOv8 and OpenCV with live webcam feed support.",
-    tags: ["YOLOv8", "OpenCV", "Python"],
-    badge: "Vision AI",
+      "Real-time traffic sign detection and classification using YOLOv8 and OpenCV with live webcam feed support and edge deployment capability.",
+    image: null,
+    hasImage: false,
+    tags: ["YOLOv8", "OpenCV", "Python", "Computer Vision"],
     github: "https://github.com/afebrioo",
-    featured: false,
+    total: "06",
   },
   {
     id: "fuzzy-route",
+    num: "06",
     name: "Fuzzy Route Estimator",
+    role: "AI Systems Developer",
     tagline: "Intelligent Route Comfort System",
     description:
       "Fuzzy logic system estimating route comfort between Telkom University and Lembang based on traffic, weather, and road conditions.",
-    tags: ["Fuzzy Logic", "Python"],
-    badge: "AI Systems",
+    image: null,
+    hasImage: false,
+    tags: ["Fuzzy Logic", "Python", "AI Systems"],
     github: "https://github.com/afebrioo",
-    featured: false,
+    total: "06",
   },
 ];
 
-const fadeUp = (i = 0) => ({
+const inView = (i = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.65, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] as const },
 });
 
 export default function Projects() {
   return (
-    <section id="projects" className="section">
-      <div className="container">
-        <motion.p className="eyebrow" {...fadeUp(0)}>portfolio</motion.p>
-        <motion.h2 className="section-title" {...fadeUp(0.05)}>Featured Projects</motion.h2>
+    <section id="projects" className="section-dark">
+      {/* Marquee header */}
+      <div className="marquee-outer">
+        <div className="marquee-track">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <span key={i}>
+              <span className="marquee-item">SELECTED WORK</span>
+              <span className="marquee-item marquee-sep">—</span>
+            </span>
+          ))}
+        </div>
+      </div>
 
-        <div className={styles.grid}>
-          {projects.map((p, i) => (
-            <motion.div
-              key={p.id}
-              className={`card ${styles.card} ${p.featured ? styles.featured : ""}`}
-              id={`project-${p.id}`}
-              {...fadeUp(i * 0.07)}
-            >
-              <div className={styles.top}>
-                <span className={styles.badge}>
-                  <Tag size={9} /> {p.badge}
-                </span>
-                <div className={styles.links}>
+      <div className="container" style={{ paddingTop: "60px" }}>
+        <div className={styles.header}>
+          <p className="section-label-light">Portfolio</p>
+          <a
+            href="https://github.com/afebrioo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost"
+            style={{ color: "var(--text-light)", borderColor: "var(--border-dark)" }}
+            id="projects-github"
+          >
+            View All ↗
+          </a>
+        </div>
+
+        {/* Featured project (SIGIGI) — full width with image */}
+        <motion.div className={styles.featured} id="project-sigigi" {...inView(0)}>
+          <div className={styles.featuredImgWrap}>
+            <img src={projects[0].image!} alt={projects[0].name} className={styles.featuredImg} />
+          </div>
+          <div className={styles.featuredMeta}>
+            <div className={styles.featuredTop}>
+              <span className={styles.num}>{projects[0].num} / {projects[0].total}</span>
+              <span className={styles.role}>{projects[0].role}</span>
+              {projects[0].github && (
+                <a href={projects[0].github} target="_blank" rel="noopener noreferrer"
+                   className={styles.arrowLink} aria-label="Open project">↗</a>
+              )}
+            </div>
+            <div className="dashed-line-dark" style={{ margin: "12px 0" }} />
+            <h3 className={styles.name}>{projects[0].name}</h3>
+            <p className={styles.tagline}>{projects[0].tagline}</p>
+            <div className={styles.tags}>
+              {projects[0].tags.map((t) => (
+                <span key={t} className={styles.tag}>{t}</span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="dashed-line-dark" style={{ margin: "40px 0" }} />
+
+        {/* Remaining projects — text list style */}
+        <div className={styles.list}>
+          {projects.slice(1).map((p, i) => (
+            <motion.div key={p.id} className={styles.listItem} id={`project-${p.id}`} {...inView((i + 1) * 0.06)}>
+              <div className="dashed-line-dark" />
+              <div className={styles.listInner}>
+                <span className={styles.listNum}>{p.num} / {p.total}</span>
+                <div className={styles.listMain}>
+                  <h3 className={styles.listName}>{p.name}</h3>
+                  <p className={styles.listTagline}>{p.tagline}</p>
+                </div>
+                <p className={styles.listDesc}>{p.description}</p>
+                <div className={styles.listRight}>
+                  <span className={styles.listRole}>{p.role}</span>
+                  <div className={styles.listTags}>
+                    {p.tags.map((t) => (
+                      <span key={t} className={styles.tag}>{t}</span>
+                    ))}
+                  </div>
                   {p.github && (
                     <a href={p.github} target="_blank" rel="noopener noreferrer"
-                       className={styles.iconLink} aria-label="GitHub">
-                      <FaGithub size={14} />
-                    </a>
+                       className={styles.arrowLink} aria-label="Open project">↗</a>
                   )}
-                  <a href={p.github || "#"} target="_blank" rel="noopener noreferrer"
-                     className={styles.iconLink} aria-label="External">
-                    <ExternalLink size={14} />
-                  </a>
                 </div>
-              </div>
-
-              <h3 className={styles.name}>{p.name}</h3>
-              <p className={styles.tagline}>{p.tagline}</p>
-              <p className={styles.desc}>{p.description}</p>
-
-              <div className={styles.tags}>
-                {p.tags.map((t) => (
-                  <span key={t} className="badge badge-subtle">{t}</span>
-                ))}
               </div>
             </motion.div>
           ))}
+          <div className="dashed-line-dark" />
         </div>
-
-        <motion.div className={styles.more} {...fadeUp(0.5)}>
-          <a href="https://github.com/afebrioo" target="_blank" rel="noopener noreferrer"
-             className="btn btn-outline" id="projects-github">
-            <FaGithub size={15} /> View All on GitHub
-          </a>
-        </motion.div>
       </div>
     </section>
   );
