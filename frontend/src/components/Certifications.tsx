@@ -18,7 +18,7 @@ const volunteering = [
     role: "President",
     org: "CONNECTION HMTK Telkom University",
     desc: "Led community service program with 30 lecturers & 68 students. Collaborated with GOJEK for sponsorship.",
-    total: "04",
+    total: "03",
   },
   {
     id: "vol-event",
@@ -26,23 +26,15 @@ const volunteering = [
     role: "Event Director",
     org: "CONNECTION HMTK",
     desc: "Coordinated team of 60+ volunteers for a large-scale university event from planning to execution.",
-    total: "04",
-  },
-  {
-    id: "vol-orientation",
-    num: "03",
-    role: "Seminar Presenter",
-    org: "Technology-Driven Education Innovation",
-    desc: "Empowering educators in rural elementary schools with AI and modern data processing tools.",
-    total: "04",
+    total: "03",
   },
   {
     id: "vol-logistics",
-    num: "04",
+    num: "03",
     role: "Logistics Officer",
     org: "Telkom University PKKMB",
     desc: "Managed logistics and resource allocation for university-wide orientation activities.",
-    total: "04",
+    total: "03",
   },
 ];
 

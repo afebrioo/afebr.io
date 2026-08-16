@@ -75,7 +75,7 @@ const inView = (i = 0) => ({
 export default function Experience() {
   return (
     <section id="experience" className="section-alt">
-      <div className="container">
+      <div className={styles.expContainer}>
         {/* Header */}
         <div className={styles.header}>
           <div>

@@ -23,15 +23,26 @@ export default function Contact() {
       <div className="container">
         {/* CTA heading */}
         <motion.div className={styles.ctaBlock} {...inView(0)}>
-          <p className={styles.ctaLabel}>Get in Touch</p>
+          <div className={styles.ctaBadgeRow}>
+            <span className={styles.ctaLabelBadge}>Get in Touch</span>
+          </div>
           <h2 className={styles.ctaHeading}>
             Let&apos;s work<br />
             <em>together.</em>
           </h2>
           <p className={styles.ctaSub}>
-            I'm open to internships, full-time roles, and freelance projects.
-            Let's build something meaningful.
+            I&apos;m open to internships, full-time roles, and freelance projects.
+            Let&apos;s build something meaningful.
           </p>
+          <div className={styles.ctaBtnRow}>
+            <a
+              href="mailto:rahmandaafebrioyuris@gmail.com"
+              className={styles.getInTouchBtn}
+              id="contact-get-in-touch-btn"
+            >
+              Get in Touch ✉
+            </a>
+          </div>
         </motion.div>
 
         {/* Divider */}
