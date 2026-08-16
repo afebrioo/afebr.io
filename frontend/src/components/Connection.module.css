@@ -1,9 +1,10 @@
 /* ── Connection Section ──────────────────────────────────── */
 .section {
   background: #EBE4D8;
-  padding: 100px 0;
+  padding: 100px 0 0 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .header {
@@ -178,21 +179,26 @@
   text-align: center;
 }
 
-/* ── Side-by-Side Hero Video Layout (1 | 2 Mentok Kiri Kanan) ── */
+/* ── Full-Bleed 100vw Side-by-Side Hero Video Layout (1 | 2 Mentok Screen Edges) ── */
 .heroVideoRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  border-radius: 12px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 60px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
+  border-top: 1px solid var(--border);
 }
 
 .heroVideoCard {
   position: relative;
   width: 100%;
-  height: 360px;
+  height: 440px;
   overflow: hidden;
   background: #000;
 }
@@ -239,7 +245,7 @@
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
-  .heroVideoCard { height: 280px; }
+  .heroVideoCard { height: 300px; }
   .stats { padding: 20px 16px; }
   .stat { padding: 0 20px; }
 }

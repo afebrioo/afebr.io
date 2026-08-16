@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import styles from "./Certifications.module.css";
 
-const BASE_PATH = "/afebr.io";
-
 const certs = [
   { id: "ibm-data",       title: "Getting Started with Data",           issuer: "IBM",              date: "Jul 2026", link: "https://linkedin.com/in/afebrioo", category: "Data Science" },
   { id: "nvidia-dl",      title: "Fundamentals of Deep Learning",       issuer: "NVIDIA",           date: "Oct 2025", link: "https://linkedin.com/in/afebrioo", category: "Deep Learning" },
@@ -19,7 +17,6 @@ const volunteering = [
     num: "01",
     role: "President",
     org: "CONNECTION HMTK Telkom University",
-    image: `${BASE_PATH}/images/afebrio-kabinet.jpg`,
     desc: "Led community service program with 30 lecturers & 68 students. Collaborated with GOJEK for sponsorship.",
     total: "04",
   },
@@ -28,7 +25,6 @@ const volunteering = [
     num: "02",
     role: "Event Director",
     org: "CONNECTION HMTK",
-    image: `${BASE_PATH}/images/afebrio-keynote.jpg`,
     desc: "Coordinated team of 60+ volunteers for a large-scale university event from planning to execution.",
     total: "04",
   },
@@ -37,7 +33,6 @@ const volunteering = [
     num: "03",
     role: "Seminar Presenter",
     org: "Technology-Driven Education Innovation",
-    image: `${BASE_PATH}/images/afebrio-wide.jpg`,
     desc: "Empowering educators in rural elementary schools with AI and modern data processing tools.",
     total: "04",
   },
@@ -46,7 +41,6 @@ const volunteering = [
     num: "04",
     role: "Logistics Officer",
     org: "Telkom University PKKMB",
-    image: `${BASE_PATH}/images/afebrio-speech.jpg`,
     desc: "Managed logistics and resource allocation for university-wide orientation activities.",
     total: "04",
   },
@@ -95,7 +89,7 @@ export default function Certifications() {
         </div>
       </section>
 
-      {/* Community & Volunteering */}
+      {/* Community & Volunteering (Text-only clean cards) */}
       <section id="volunteering" className="section-alt">
         <div className="container">
           <p className="section-label" style={{ marginBottom: 14 }}>Community</p>
@@ -104,15 +98,12 @@ export default function Certifications() {
           <div className={styles.volGrid}>
             {volunteering.map((v, i) => (
               <motion.div key={v.id} className={styles.volCard} id={`vol-${v.id}`} {...inView(i * 0.08)}>
-                <div className={styles.volImgWrap}>
-                  <img src={v.image} alt={v.org} className={styles.volImg} />
-                </div>
                 <div className={styles.volMeta}>
                   <div className={styles.volTop}>
                     <span className={styles.volNum}>{v.num} / {v.total}</span>
                     <span className={styles.volRole}>{v.role}</span>
                   </div>
-                  <p className={styles.volOrg}>{v.org}</p>
+                  <h3 className={styles.volOrg}>{v.org}</h3>
                   <p className={styles.volDesc}>{v.desc}</p>
                 </div>
               </motion.div>

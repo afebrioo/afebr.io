@@ -54,13 +54,13 @@ const experiences = [
 
 const videos = [
   {
-    title: "Organization Speech & Ceremony Leadership",
-    sub: "Video recorded during Overclock 2025",
+    title: "Keynote Speech & Public Relations Closing",
+    sub: "Recorded during CONNECTION HMTK annual event",
     src: `${BASE_PATH}/videos/pidato_leadership.mp4`,
   },
   {
-    title: "Keynote Speech & Public Relations Closing",
-    sub: "Recorded during CONNECTION HMTK annual event",
+    title: "Organization Speech & Ceremony Leadership",
+    sub: "Video recorded during Overclock 2025",
     src: `${BASE_PATH}/videos/keynote_speech.mp4`,
   },
 ];
@@ -119,28 +119,28 @@ export default function Experience() {
           ))}
           <div className="dashed-line" />
         </div>
+      </div>
 
-        {/* Hero-style stacked video highlights (top and bottom touching) */}
-        <div className={styles.heroVideoStack}>
-          {videos.map((v, i) => (
-            <motion.div key={i} className={styles.heroVideoCard} {...inView(0.3 + i * 0.1)}>
-              <video
-                src={v.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.heroVideoBg}
-              />
-              <div className={styles.heroVideoOverlay} />
-              <div className={styles.heroVideoContent}>
-                <span className={styles.heroVideoBadge}>Video Highlight</span>
-                <h3 className={styles.heroVideoTitle}>{v.title}</h3>
-                <p className={styles.heroVideoSub}>{v.sub}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      {/* Full-Bleed 100vw Edge-to-Edge Hero Video Stack */}
+      <div className={styles.heroVideoStack}>
+        {videos.map((v, i) => (
+          <motion.div key={i} className={styles.heroVideoCard} {...inView(0.3 + i * 0.1)}>
+            <video
+              src={v.src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={styles.heroVideoBg}
+            />
+            <div className={styles.heroVideoOverlay} />
+            <div className={styles.heroVideoContent}>
+              <span className={styles.heroVideoBadge}>Video Highlight</span>
+              <h3 className={styles.heroVideoTitle}>{v.title}</h3>
+              <p className={styles.heroVideoSub}>{v.sub}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
