@@ -129,11 +129,11 @@ export default function Certifications() {
             <div className={styles.videoWrap}>
               <video
                 src={`${BASE_PATH}/videos/keynote_speech.mp4`}
-                controls
-                playsInline
+                autoPlay
+                loop
                 muted
+                playsInline
                 className={styles.video}
-                poster={`${BASE_PATH}/images/afebrio-keynote.jpg`}
               />
             </div>
           </motion.div>

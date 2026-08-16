@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" fill="none">
+  <!-- Gojek Solv Icon -->
+  <g transform="translate(10, 5)">
+    <circle cx="40" cy="40" r="40" fill="#00AA13"/>
+    <circle cx="40" cy="40" r="23" fill="#FFFFFF"/>
+    <circle cx="40" cy="40" r="11" fill="#00AA13"/>
+  </g>
+  <!-- Gojek Wordmark -->
+  <text x="105" y="58" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-weight="800" font-size="48" fill="#1A1410" letter-spacing="-1.5px">gojek</text>
+</svg>

@@ -46,6 +46,14 @@
   padding: 28px 0;
 }
 
+.itemInnerNoImg {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 32px;
+  align-items: start;
+  padding: 28px 0;
+}
+
 /* Number badge */
 .numBadge {
   font-family: var(--font-mono);
@@ -139,6 +147,14 @@
   transform: scale(1.06);
 }
 
+/* ── Video Grid ─────────────────────────────────────────── */
+.videoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 0;
+}
+
 /* ── Video Card ─────────────────────────────────────────── */
 .videoCard {
   background: var(--bg-card);
@@ -190,12 +206,18 @@
     align-items: flex-start;
   }
   .intro { text-align: left; }
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .itemInner {
     grid-template-columns: 40px 1fr;
     grid-template-rows: auto auto;
+  }
+  .itemInnerNoImg {
+    grid-template-columns: 40px 1fr;
   }
   .imgWrap {
     grid-column: 2;

@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Full bleed background photo */}
       <div className={styles.bgWrap}>
         <img
-          src={`${BASE_PATH}/images/afebrio-profpic.jpg`}
+          src={`${BASE_PATH}/images/afebrio-hero-bg.jpg`}
           alt="Rahmanda Afebrio"
           className={styles.bgImg}
         />

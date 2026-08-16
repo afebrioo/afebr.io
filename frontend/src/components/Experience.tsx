@@ -13,7 +13,8 @@ const experiences = [
     period: "Jun – Aug 2025",
     type: "Internship",
     desc: "Built commodity price forecasting models using XGBoost, Random Forest, Prophet, and LSTM. Delivered analytical dashboard for government stakeholders.",
-    image: `${BASE_PATH}/images/afebrio-kemendag1.jpg`,
+    image: `${BASE_PATH}/images/afebrio-kemendag2.jpg`,
+    hasImage: true,
     total: "04",
   },
   {
@@ -24,6 +25,7 @@ const experiences = [
     type: "Leadership",
     desc: "Led student engineering organization (HMTK) with hundreds of members. Oversaw strategic planning, events, and inter-departmental coordination.",
     image: `${BASE_PATH}/images/afebrio-kabinet.jpg`,
+    hasImage: true,
     total: "04",
   },
   {
@@ -33,7 +35,8 @@ const experiences = [
     period: "Jun 2024 – Jun 2025",
     type: "Academic",
     desc: "Co-managed laboratory operations, mentored junior members, and contributed to research in software engineering and AI applications.",
-    image: `${BASE_PATH}/images/afebrio-standing.jpg`,
+    image: null,
+    hasImage: false,
     total: "04",
   },
   {
@@ -43,8 +46,24 @@ const experiences = [
     period: "Jun 2025 – May 2026",
     type: "Academic",
     desc: "Assisted in AI/ML lab sessions, guided students on practical experiments, and supervised research projects in intelligent systems.",
-    image: `${BASE_PATH}/images/afebrio-wide.jpg`,
+    image: null,
+    hasImage: false,
     total: "04",
+  },
+];
+
+const videos = [
+  {
+    title: "Keynote Speech & Public Relations Closing",
+    sub: "Recorded during CONNECTION HMTK annual event",
+    src: `${BASE_PATH}/videos/keynote_speech.mp4`,
+    poster: `${BASE_PATH}/images/afebrio-keynote.jpg`,
+  },
+  {
+    title: "Organization Speech & Ceremony Leadership",
+    sub: "Video recorded during Overclock 2025",
+    src: `${BASE_PATH}/videos/pidato_leadership.mp4`,
+    poster: `${BASE_PATH}/images/afebrio-kabinet.jpg`,
   },
 ];
 
@@ -63,7 +82,7 @@ export default function Experience() {
         <div className={styles.header}>
           <div>
             <p className="section-label" style={{ marginBottom: 12 }}>Career</p>
-            <h2 className={styles.title}>Experience &amp;<br /><em>Leadership</em></h2>
+            <h2 className={styles.title}>Experience &<br /><em>Leadership</em></h2>
           </div>
           <p className={styles.intro}>
             From government data labs to student org leadership —<br />
@@ -76,7 +95,7 @@ export default function Experience() {
           {experiences.map((exp, i) => (
             <motion.div key={exp.num} className={styles.item} {...inView(i * 0.06)}>
               <div className="dashed-line" />
-              <div className={styles.itemInner}>
+              <div className={exp.hasImage ? styles.itemInner : styles.itemInnerNoImg}>
                 {/* Number badge */}
                 <span className={styles.numBadge}>{exp.num}</span>
 
@@ -91,34 +110,40 @@ export default function Experience() {
                   <p className={styles.desc}>{exp.desc}</p>
                 </div>
 
-                {/* Thumbnail */}
-                <div className={styles.imgWrap}>
-                  <img src={exp.image} alt={exp.company} className={styles.img} />
-                </div>
+                {/* Thumbnail — only if hasImage */}
+                {exp.hasImage && exp.image && (
+                  <div className={styles.imgWrap}>
+                    <img src={exp.image} alt={exp.company} className={styles.img} />
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
           <div className="dashed-line" />
         </div>
 
-        {/* Video highlight */}
-        <motion.div className={styles.videoCard} {...inView(0.4)}>
-          <div className={styles.videoMeta}>
-            <span className="section-label">Video Highlight</span>
-            <h3 className={styles.videoTitle}>Organization Speech &amp; Ceremony Leadership</h3>
-            <p className={styles.videoSub}>Recorded during HMTK Telkom University formal ceremony</p>
-          </div>
-          <div className={styles.videoWrap}>
-            <video
-              src={`${BASE_PATH}/videos/pidato_leadership.mp4`}
-              controls
-              playsInline
-              muted
-              className={styles.video}
-              poster={`${BASE_PATH}/images/afebrio-kabinet.jpg`}
-            />
-          </div>
-        </motion.div>
+        {/* Video highlights */}
+        <div className={styles.videoGrid}>
+          {videos.map((v, i) => (
+            <motion.div key={i} className={styles.videoCard} {...inView(0.3 + i * 0.1)}>
+              <div className={styles.videoMeta}>
+                <span className="section-label">Video Highlight</span>
+                <h3 className={styles.videoTitle}>{v.title}</h3>
+                <p className={styles.videoSub}>{v.sub}</p>
+              </div>
+              <div className={styles.videoWrap}>
+                <video
+                  src={v.src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className={styles.video}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,221 @@
+/* ── Connection Section ──────────────────────────────────── */
+.section {
+  background: #EBE4D8;
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--earth);
+}
+
+/* Sponsor badge */
+.sponsorBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  background: #FAF7F2;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.sponsorLabel {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.sponsorLogo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Description ──────────────────────────────────────────── */
+.descBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.desc {
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  color: var(--text-2);
+  line-height: 1.8;
+  max-width: 760px;
+}
+
+.desc strong {
+  color: var(--text-1);
+  font-weight: 700;
+}
+
+.desc em {
+  font-style: italic;
+  color: var(--earth);
+}
+
+.gojekHighlight {
+  color: #00AA13;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ── Stats ───────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 28px 32px;
+  background: #FAF7F2;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px;
+  gap: 4px;
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--earth);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.statDiv {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Photo Grid (2 Columns) ──────────────────────────────── */
+.photoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.photoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.photoWrap {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--cream-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.photoWrap:hover .photo {
+  transform: scale(1.04);
+}
+
+.photoCaption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  text-align: center;
+}
+
+/* ── Video Grid (No Captions) ────────────────────────────── */
+.videoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.videoCard {
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.videoWrap {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .header { flex-direction: column; }
+  .sponsorBadge { align-items: flex-start; }
+  .photoGrid { grid-template-columns: 1fr; }
+  .videoGrid { grid-template-columns: 1fr; }
+  .stats { padding: 20px 16px; }
+  .stat { padding: 0 20px; }
+}
+
+@media (max-width: 640px) {
+  .stats { flex-wrap: wrap; width: 100%; }
+}

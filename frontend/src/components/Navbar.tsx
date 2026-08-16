@@ -5,11 +5,12 @@ import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 
 const links = [
-  { href: "#about",    label: "About" },
-  { href: "#projects", label: "Work" },
-  { href: "#skills",   label: "Skills" },
+  { href: "#about",      label: "About" },
+  { href: "#projects",   label: "Work" },
+  { href: "#skills",     label: "Skills" },
   { href: "#experience", label: "Experience" },
-  { href: "#contact",  label: "Contact" },
+  { href: "#connection", label: "Connection" },
+  { href: "#contact",    label: "Contact" },
 ];
 
 const BASE_PATH = "/afebr.io";
