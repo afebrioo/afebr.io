@@ -38,8 +38,6 @@
   margin-bottom: 64px;
 }
 
-.item {}
-
 .itemInner {
   display: grid;
   grid-template-columns: 48px 1fr 180px;

@@ -147,8 +147,6 @@
   flex-direction: column;
 }
 
-.listItem {}
-
 .listInner {
   display: grid;
   grid-template-columns: 56px 220px 1fr 200px;
@@ -166,8 +164,6 @@
   flex-shrink: 0;
   letter-spacing: 0.08em;
 }
-
-.listMain {}
 
 .listName {
   font-family: var(--font-display);
