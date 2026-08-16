@@ -10,10 +10,10 @@ const projects = [
     id: "sigigi",
     num: "01",
     name: "SIGIGI 2.0",
-    role: "AI Engineer & Full-Stack Developer",
-    tagline: "AI-Powered Dental Clinic Management System",
+    role: "AI Engineer & Full-Stack Dev",
+    tagline: "AI-Powered Dental Clinic Management",
     description:
-      "Full-stack clinic management platform with CNN-based X-ray diagnosis using EfficientNetB0 — achieving 91.18% accuracy. Built with Laravel, React, MySQL, FastAPI, and TensorFlow.",
+      "Full-stack clinic platform with CNN-based X-ray diagnosis using EfficientNetB0 — 91.18% accuracy. Built with Laravel, React, MySQL, FastAPI, and TensorFlow.",
     image: `${BASE_PATH}/images/sigigi-landing.png`,
     hasImage: true,
     tags: ["FastAPI", "TensorFlow", "CNN", "React", "Laravel"],
@@ -24,10 +24,10 @@ const projects = [
     id: "commodity-forecast",
     num: "02",
     name: "Commodity Forecasting",
-    role: "Data Scientist · Kemendag RI Internship",
-    tagline: "Multi-Model Price Forecasting for Government",
+    role: "Data Scientist · Kemendag RI",
+    tagline: "Multi-Model Price Forecasting",
     description:
-      "Multi-model price forecasting system using XGBoost, Random Forest, Prophet, and LSTM for Kementerian Perdagangan RI. Delivered interactive analytics dashboard for government stakeholders.",
+      "Price forecasting system using XGBoost, Random Forest, Prophet, and LSTM for Kementerian Perdagangan RI. Interactive analytics dashboard for government stakeholders.",
     image: null,
     hasImage: false,
     tags: ["XGBoost", "Prophet", "LSTM", "Python"],
@@ -53,9 +53,9 @@ const projects = [
     num: "04",
     name: "Sysrec",
     role: "ML Researcher",
-    tagline: "Export Potential Predictor with Random Forest",
+    tagline: "Export Potential Predictor",
     description:
-      "Machine learning model to predict commodity export potential using Random Forest, with comprehensive EDA and feature engineering in Jupyter.",
+      "Machine learning model predicting commodity export potential using Random Forest, with comprehensive EDA and feature engineering.",
     image: null,
     hasImage: false,
     tags: ["Random Forest", "Scikit-learn", "Jupyter", "EDA"],
@@ -67,12 +67,12 @@ const projects = [
     num: "05",
     name: "Traffic Sign Detector",
     role: "Computer Vision Engineer",
-    tagline: "Real-Time Detection Using YOLOv8",
+    tagline: "Real-Time Detection — YOLOv8",
     description:
-      "Real-time traffic sign detection and classification using YOLOv8 and OpenCV with live webcam feed support and edge deployment capability.",
+      "Real-time traffic sign detection and classification using YOLOv8 and OpenCV with live webcam feed support and edge deployment.",
     image: null,
     hasImage: false,
-    tags: ["YOLOv8", "OpenCV", "Python", "Computer Vision"],
+    tags: ["YOLOv8", "OpenCV", "Python", "CV"],
     github: "https://github.com/afebrioo",
     total: "06",
   },
@@ -93,59 +93,50 @@ const projects = [
 ];
 
 const inView = (i = 0) => ({
-  initial: { opacity: 0, y: 28 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.65, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] as const },
+  transition: { duration: 0.6, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] as const },
 });
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-dark">
-      {/* Marquee header */}
-      <div className="marquee-outer">
-        <div className="marquee-track">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span key={i}>
-              <span className="marquee-item">SELECTED WORK</span>
-              <span className="marquee-item marquee-sep">—</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="container" style={{ paddingTop: "60px" }}>
+    <section id="projects" className="section-light">
+      <div className="container">
+        {/* Header */}
         <div className={styles.header}>
-          <p className="section-label-light">Portfolio</p>
+          <div>
+            <p className="section-label" style={{ marginBottom: 12 }}>Portfolio</p>
+            <h2 className={styles.title}>Selected<br /><em>Work</em></h2>
+          </div>
           <a
             href="https://github.com/afebrioo"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost"
-            style={{ color: "var(--text-light)", borderColor: "var(--border-dark)" }}
             id="projects-github"
           >
-            View All ↗
+            View All on GitHub ↗
           </a>
         </div>
 
-        {/* Featured project (SIGIGI) — full width with image */}
+        {/* Featured project */}
         <motion.div className={styles.featured} id="project-sigigi" {...inView(0)}>
-          <div className={styles.featuredImgWrap}>
-            <img src={projects[0].image!} alt={projects[0].name} className={styles.featuredImg} />
+          <div className={styles.featuredImg}>
+            <img src={projects[0].image!} alt={projects[0].name} className={styles.featuredImgEl} />
           </div>
           <div className={styles.featuredMeta}>
             <div className={styles.featuredTop}>
-              <span className={styles.num}>{projects[0].num} / {projects[0].total}</span>
-              <span className={styles.role}>{projects[0].role}</span>
+              <span className={styles.featNum}>{projects[0].num} / {projects[0].total}</span>
+              <span className={styles.featRole}>{projects[0].role}</span>
               {projects[0].github && (
                 <a href={projects[0].github} target="_blank" rel="noopener noreferrer"
                    className={styles.arrowLink} aria-label="Open project">↗</a>
               )}
             </div>
-            <div className="dashed-line-dark" style={{ margin: "12px 0" }} />
-            <h3 className={styles.name}>{projects[0].name}</h3>
-            <p className={styles.tagline}>{projects[0].tagline}</p>
+            <h3 className={styles.featName}>{projects[0].name}</h3>
+            <p className={styles.featTagline}>{projects[0].tagline}</p>
+            <p className={styles.featDesc}>{projects[0].description}</p>
             <div className={styles.tags}>
               {projects[0].tags.map((t) => (
                 <span key={t} className={styles.tag}>{t}</span>
@@ -154,13 +145,18 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        <div className="dashed-line-dark" style={{ margin: "40px 0" }} />
+        <div className="dashed-line" style={{ margin: "48px 0" }} />
 
-        {/* Remaining projects — text list style */}
+        {/* Remaining projects */}
         <div className={styles.list}>
           {projects.slice(1).map((p, i) => (
-            <motion.div key={p.id} className={styles.listItem} id={`project-${p.id}`} {...inView((i + 1) * 0.06)}>
-              <div className="dashed-line-dark" />
+            <motion.div
+              key={p.id}
+              className={styles.listItem}
+              id={`project-${p.id}`}
+              {...inView((i + 1) * 0.07)}
+            >
+              <div className="dashed-line" />
               <div className={styles.listInner}>
                 <span className={styles.listNum}>{p.num} / {p.total}</span>
                 <div className={styles.listMain}>
@@ -183,7 +179,7 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
-          <div className="dashed-line-dark" />
+          <div className="dashed-line" />
         </div>
       </div>
     </section>

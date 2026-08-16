@@ -10,7 +10,7 @@ const experiences = [
     num: "01",
     role: "Data Scientist Intern",
     company: "Kementerian Perdagangan RI",
-    period: "Jun 2025 – Aug 2025",
+    period: "Jun – Aug 2025",
     type: "Internship",
     desc: "Built commodity price forecasting models using XGBoost, Random Forest, Prophet, and LSTM. Delivered analytical dashboard for government stakeholders.",
     image: `${BASE_PATH}/images/afebrio-kemendag1.jpg`,
@@ -49,51 +49,49 @@ const experiences = [
 ];
 
 const inView = (i = 0) => ({
-  initial: { opacity: 0, y: 28 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.65, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
+  transition: { duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] as const },
 });
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-light">
+    <section id="experience" className="section-alt">
       <div className="container">
-        <div className={styles.topRow}>
+        {/* Header */}
+        <div className={styles.header}>
           <div>
-            <p className="section-label">Career</p>
-            <h2 className={styles.title}>EXPERIENCE<br />&amp; LEADERSHIP</h2>
+            <p className="section-label" style={{ marginBottom: 12 }}>Career</p>
+            <h2 className={styles.title}>Experience &amp;<br /><em>Leadership</em></h2>
           </div>
           <p className={styles.intro}>
             From government data labs to student org leadership —<br />
-            building real-world impact across roles.
+            building real-world impact across every role.
           </p>
         </div>
 
+        {/* Experience List */}
         <div className={styles.list}>
           {experiences.map((exp, i) => (
-            <motion.div key={exp.num} className={styles.item} {...inView(i * 0.05)}>
+            <motion.div key={exp.num} className={styles.item} {...inView(i * 0.06)}>
               <div className="dashed-line" />
               <div className={styles.itemInner}>
-                {/* Left meta */}
-                <div className={styles.metaCol}>
-                  <span className={styles.num}>{exp.num} / {exp.total}</span>
-                  <div>
-                    <h3 className={styles.role}>{exp.role}</h3>
-                    <p className={styles.company}>{exp.company}</p>
+                {/* Number badge */}
+                <span className={styles.numBadge}>{exp.num}</span>
+
+                {/* Main info */}
+                <div className={styles.mainInfo}>
+                  <div className={styles.metaRow}>
+                    <span className={styles.type}>{exp.type}</span>
+                    <span className={styles.period}>{exp.period}</span>
                   </div>
+                  <h3 className={styles.role}>{exp.role}</h3>
+                  <p className={styles.company}>{exp.company}</p>
+                  <p className={styles.desc}>{exp.desc}</p>
                 </div>
 
-                {/* Center desc */}
-                <p className={styles.desc}>{exp.desc}</p>
-
-                {/* Right: type + arrow */}
-                <div className={styles.rightCol}>
-                  <span className={styles.type}>{exp.type}</span>
-                  <span className={styles.period}>{exp.period}</span>
-                </div>
-
-                {/* Image */}
+                {/* Thumbnail */}
                 <div className={styles.imgWrap}>
                   <img src={exp.image} alt={exp.company} className={styles.img} />
                 </div>
@@ -103,21 +101,21 @@ export default function Experience() {
           <div className="dashed-line" />
         </div>
 
-        {/* Featured Video Asset Showcase */}
-        <motion.div className={styles.videoCard} {...inView(0.3)}>
-          <div className={styles.videoHeader}>
-            <span className={styles.videoBadge}>VIDEO HIGHLIGHT ✦</span>
-            <h3 className={styles.videoTitle}>Organization Speech & Ceremony Leadership</h3>
+        {/* Video highlight */}
+        <motion.div className={styles.videoCard} {...inView(0.4)}>
+          <div className={styles.videoMeta}>
+            <span className="section-label">Video Highlight</span>
+            <h3 className={styles.videoTitle}>Organization Speech &amp; Ceremony Leadership</h3>
+            <p className={styles.videoSub}>Recorded during HMTK Telkom University formal ceremony</p>
           </div>
-          <div className={styles.videoContainer}>
+          <div className={styles.videoWrap}>
             <video
               src={`${BASE_PATH}/videos/pidato_leadership.mp4`}
-              autoPlay
-              loop
-              muted
-              playsInline
               controls
-              className={styles.videoElement}
+              playsInline
+              muted
+              className={styles.video}
+              poster={`${BASE_PATH}/images/afebrio-kabinet.jpg`}
             />
           </div>
         </motion.div>

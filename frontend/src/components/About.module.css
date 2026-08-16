@@ -1,110 +1,142 @@
+/* ── About Section ──────────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 80px;
   align-items: start;
 }
 
-/* Photo */
-.photoWrap {
+/* Photo side */
+.photoSide {
   position: sticky;
-  top: 100px;
+  top: 96px;
+}
+
+.photoFrame {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  background: var(--cream-light);
 }
 
 .photo {
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  filter: grayscale(30%) contrast(1.05);
-  transition: filter 0.5s ease;
+  transition: transform 0.7s var(--ease-out);
 }
 
-.photo:hover {
-  filter: grayscale(0%) contrast(1);
+.photoFrame:hover .photo {
+  transform: scale(1.03);
 }
 
-.photoMeta {
+.photoCaption {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
 }
 
-.metaDot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--text-light-2);
-  flex-shrink: 0;
+.dot {
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+  margin-top: -2px;
 }
 
-/* Right column */
-.right {
-  padding-top: 20px;
+/* Text side */
+.textSide {
+  padding-top: 4px;
 }
 
-/* Philosophy */
+.heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+  margin-bottom: 20px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--earth);
+}
+
+.bio {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 560px;
+}
+
+/* Philosophy items */
 .philosophies {
-  margin-top: 40px;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
 }
 
 .philosophyItem {
-  padding: 28px 0 0;
+  padding-top: 6px;
 }
 
 .philosophyRow {
   display: flex;
-  gap: 28px;
-  padding-bottom: 28px;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px 0;
 }
 
 .philosophyNum {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-light-2);
-  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--earth-muted);
   padding-top: 3px;
+  flex-shrink: 0;
+  letter-spacing: 0.1em;
 }
 
 .philosophyText {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 14px;
+  color: var(--text-2);
   line-height: 1.65;
-  color: var(--text-light);
-  font-weight: 400;
 }
 
 /* CTA row */
 .ctaRow {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 28px;
 }
 
 .ctaInfo {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .ctaTitle {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--text-light);
-  letter-spacing: 0.02em;
-  margin-bottom: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-1);
 }
 
 .ctaSub {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-light-2);
-  margin-bottom: 4px;
+  color: var(--text-3);
+  letter-spacing: 0.06em;
 }
 
 /* Responsive */
@@ -113,16 +145,8 @@
     grid-template-columns: 1fr;
     gap: 48px;
   }
-
-  .photoWrap {
+  .photoSide {
     position: static;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 540px) {
-  .ctaRow {
-    flex-direction: column;
-    align-items: flex-start;
+    max-width: 320px;
   }
 }

@@ -13,11 +13,13 @@
 .chatWindow {
   width: 360px;
   height: 520px;
-  background: var(--dark);
-  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 /* Header */
@@ -26,7 +28,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-surface);
 }
 
 .headerLeft {
@@ -39,12 +42,12 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--dark-card);
-  border: 1px solid var(--border-dark);
+  background: var(--cream);
+  border: 1px solid var(--border-strong);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-light-2);
+  color: var(--earth);
 }
 
 .botName {
@@ -53,7 +56,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-light);
+  color: var(--text-1);
 }
 
 .botStatus {
@@ -62,7 +65,7 @@
   gap: 6px;
   font-family: var(--font-mono);
   font-size: 9px;
-  color: var(--text-light-2);
+  color: var(--text-3);
   margin-top: 3px;
 }
 
@@ -70,7 +73,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #3a8a3a;
+  background: #5AAF7A;
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
@@ -82,15 +85,16 @@
 .closeBtn {
   background: none;
   border: none;
-  color: var(--text-light-2);
+  color: var(--text-3);
   padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: color 0.2s;
+  cursor: pointer;
 }
 
-.closeBtn:hover { color: var(--text-light); }
+.closeBtn:hover { color: var(--text-1); }
 
 /* Messages */
 .messages {
@@ -101,7 +105,8 @@
   flex-direction: column;
   gap: 12px;
   scrollbar-width: thin;
-  scrollbar-color: var(--border-dark) transparent;
+  scrollbar-color: var(--cream-dark) transparent;
+  background: var(--bg-base);
 }
 
 .msg { display: flex; }
@@ -114,33 +119,34 @@
   font-family: var(--font-sans);
   font-size: 13px;
   line-height: 1.55;
+  border-radius: 8px;
 }
 
 .userMsg .msgBubble {
-  background: var(--text-light);
-  color: var(--dark);
+  background: var(--earth);
+  color: var(--bg-base);
 }
 
 .botMsg .msgBubble {
-  background: var(--dark-card);
-  border: 1px solid var(--border-dark);
-  color: var(--text-light);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-2);
 }
 
 .msgTime {
   display: block;
   font-family: var(--font-mono);
   font-size: 9px;
-  color: var(--text-light-2);
+  color: var(--text-muted);
   margin-top: 6px;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .typing {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-light-2);
+  color: var(--text-3);
   font-size: 13px;
 }
 
@@ -156,10 +162,11 @@
 /* Suggestions */
 .suggestions {
   padding: 10px 16px;
-  border-top: 1px solid var(--border-dark);
+  border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  background: var(--bg-surface);
 }
 
 .suggestion {
@@ -168,52 +175,55 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 10px;
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
   background: none;
-  color: var(--text-light-2);
+  color: var(--text-3);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .suggestion:hover {
-  border-color: var(--text-light-2);
-  color: var(--text-light);
-  background: var(--dark-card);
+  border-color: var(--earth);
+  color: var(--earth);
+  background: rgba(156, 124, 92, 0.06);
 }
 
 /* Input */
 .inputArea {
   display: flex;
-  border-top: 1px solid var(--border-dark);
+  border-top: 1px solid var(--border);
 }
 
 .input {
   flex: 1;
   padding: 14px 16px;
-  background: none;
+  background: var(--bg-card);
   border: none;
   outline: none;
   font-family: var(--font-sans);
   font-size: 13px;
-  color: var(--text-light);
+  color: var(--text-1);
 }
 
-.input::placeholder { color: var(--text-light-2); }
+.input::placeholder { color: var(--text-muted); }
 
 .sendBtn {
   padding: 14px 18px;
   background: none;
   border: none;
-  border-left: 1px solid var(--border-dark);
-  color: var(--text-light-2);
+  border-left: 1px solid var(--border);
+  color: var(--text-3);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .sendBtn:hover:not(:disabled) {
-  color: var(--text-light);
-  background: var(--dark-card);
+  color: var(--earth);
+  background: rgba(156, 124, 92, 0.06);
 }
 
 .sendBtn:disabled { opacity: 0.3; }
@@ -224,44 +234,48 @@
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-mid);
-  background: var(--cream-2);
-  border: 1px solid var(--border-light);
+  color: var(--text-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   padding: 6px 12px;
   white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
 }
 
 .triggerBtn {
   position: relative;
-  width: 48px;
-  height: 48px;
-  background: var(--dark);
-  border: 1px solid var(--border-dark);
-  color: var(--text-light);
+  width: 52px;
+  height: 52px;
+  background: var(--earth);
+  border: none;
+  color: var(--bg-base);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0;
+  border-radius: 50%;
   transition: all 0.25s ease;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
 }
 
 .triggerBtn:hover {
-  background: var(--text-dark);
-  color: var(--cream);
+  background: var(--earth-dark);
+  transform: scale(1.05);
 }
 
 .pulseRing {
   position: absolute;
-  inset: -4px;
-  border-radius: 0;
-  border: 1px solid rgba(242,240,234,0.2);
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(156, 124, 92, 0.35);
   animation: pulse-ring 2.5s ease-out infinite;
 }
 
 @keyframes pulse-ring {
-  0%   { transform: scale(1); opacity: 0.4; }
-  70%  { transform: scale(1.15); opacity: 0; }
-  100% { transform: scale(1.15); opacity: 0; }
+  0%   { transform: scale(1); opacity: 0.5; }
+  70%  { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1.2); opacity: 0; }
 }
 
 @media (max-width: 500px) {

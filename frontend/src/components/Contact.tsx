@@ -5,13 +5,13 @@ import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
 const socials = [
-  { href: "https://github.com/afebrioo",   Icon: FaGithub,     label: "GitHub",    handle: "afebrioo",  id: "contact-github" },
+  { href: "https://github.com/afebrioo",     Icon: FaGithub,     label: "GitHub",    handle: "afebrioo",  id: "contact-github" },
   { href: "https://linkedin.com/in/afebrioo", Icon: FaLinkedinIn, label: "LinkedIn",  handle: "afebrioo",  id: "contact-linkedin" },
-  { href: "https://instagram.com/afebrioo", Icon: FaInstagram,  label: "Instagram", handle: "@afebrioo", id: "contact-instagram" },
+  { href: "https://instagram.com/afebrioo",  Icon: FaInstagram,  label: "Instagram", handle: "@afebrioo", id: "contact-instagram" },
 ];
 
 const inView = (i = 0) => ({
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
   transition: { duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] as const },
@@ -19,37 +19,41 @@ const inView = (i = 0) => ({
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-light">
+    <section id="contact" className={styles.contactSection}>
       <div className="container">
-        {/* Big CTA heading */}
+        {/* CTA heading */}
         <motion.div className={styles.ctaBlock} {...inView(0)}>
-          <p className="section-label" style={{ marginBottom: 24 }}>Get in Touch</p>
-          <h2 className={styles.ctaHeading}>LET&apos;S WORK<br />TOGETHER.</h2>
+          <p className={styles.ctaLabel}>Get in Touch</p>
+          <h2 className={styles.ctaHeading}>
+            Let&apos;s work<br />
+            <em>together.</em>
+          </h2>
+          <p className={styles.ctaSub}>
+            I'm open to internships, full-time roles, and freelance projects.
+            Let's build something meaningful.
+          </p>
         </motion.div>
 
         {/* Divider */}
-        <div className="dashed-line" style={{ margin: "56px 0" }} />
+        <div className={styles.divider} />
 
-        {/* Bottom row: email + socials */}
-        <motion.div className={styles.bottomRow} {...inView(0.1)}>
+        {/* Bottom info grid */}
+        <motion.div className={styles.bottomGrid} {...inView(0.15)}>
           {/* Email */}
-          <div className={styles.emailBlock}>
-            <p className="section-label" style={{ marginBottom: 12 }}>Email</p>
-            <a
-              href="mailto:rahmandaafebrioyuris@gmail.com"
-              className={styles.emailLink}
-              id="contact-email-link"
-            >
+          <div>
+            <p className={styles.blockLabel}>Email</p>
+            <a href="mailto:rahmandaafebrioyuris@gmail.com" className={styles.emailLink} id="contact-email-link">
               rahmandaafebrioyuris<br />@gmail.com
             </a>
           </div>
 
-          {/* Socials list */}
-          <div className={styles.socialsBlock}>
-            <p className="section-label" style={{ marginBottom: 12 }}>Socials</p>
+          {/* Socials */}
+          <div>
+            <p className={styles.blockLabel}>Socials</p>
             <div className={styles.socialsList}>
               {socials.map(({ href, Icon, label, handle, id }) => (
-                <a key={id} href={href} target="_blank" rel="noopener noreferrer" className={styles.socialItem} id={id}>
+                <a key={id} href={href} target="_blank" rel="noopener noreferrer"
+                   className={styles.socialItem} id={id}>
                   <span className={styles.socialLabel}>
                     <Icon size={14} />
                     {label}
@@ -60,9 +64,9 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Location + availability */}
-          <div className={styles.locationBlock}>
-            <p className="section-label" style={{ marginBottom: 12 }}>Based In</p>
+          {/* Location */}
+          <div>
+            <p className={styles.blockLabel}>Based In</p>
             <p className={styles.location}>Bandung,<br />Indonesia</p>
             <p className={styles.availability}>
               <span className={styles.availDot} />
