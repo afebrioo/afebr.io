@@ -118,25 +118,6 @@ export default function Certifications() {
               </motion.div>
             ))}
           </div>
-
-          {/* Keynote video */}
-          <motion.div className={styles.videoCard} {...inView(0.4)}>
-            <div className={styles.videoMeta}>
-              <span className="section-label">Video Highlight</span>
-              <h3 className={styles.videoTitle}>Keynote Speech &amp; Public Relations Closing</h3>
-              <p className={styles.videoSub}>Recorded during CONNECTION HMTK annual event</p>
-            </div>
-            <div className={styles.videoWrap}>
-              <video
-                src={`${BASE_PATH}/videos/keynote_speech.mp4`}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.video}
-              />
-            </div>
-          </motion.div>
         </div>
       </section>
     </>

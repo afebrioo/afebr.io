@@ -178,32 +178,53 @@
   text-align: center;
 }
 
-/* ── Video Grid (No Captions) ────────────────────────────── */
-.videoGrid {
+/* ── Side-by-Side Hero Video Layout (1 | 2 Mentok Kiri Kanan) ── */
+.heroVideoRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.videoCard {
-  background: #000;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  gap: 0;
+  border-radius: 12px;
   overflow: hidden;
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-md);
 }
 
-.videoWrap {
+.heroVideoCard {
+  position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 360px;
+  overflow: hidden;
   background: #000;
 }
 
-.video {
+.heroVideoCard + .heroVideoCard {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heroVideoBg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.heroVideoCard:hover .heroVideoBg {
+  transform: scale(1.04);
+}
+
+.heroVideoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  z-index: 1;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -211,7 +232,14 @@
   .header { flex-direction: column; }
   .sponsorBadge { align-items: flex-start; }
   .photoGrid { grid-template-columns: 1fr; }
-  .videoGrid { grid-template-columns: 1fr; }
+  .heroVideoRow {
+    grid-template-columns: 1fr;
+  }
+  .heroVideoCard + .heroVideoCard {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .heroVideoCard { height: 280px; }
   .stats { padding: 20px 16px; }
   .stat { padding: 0 20px; }
 }

@@ -54,16 +54,14 @@ const experiences = [
 
 const videos = [
   {
-    title: "Keynote Speech & Public Relations Closing",
-    sub: "Recorded during CONNECTION HMTK annual event",
-    src: `${BASE_PATH}/videos/keynote_speech.mp4`,
-    poster: `${BASE_PATH}/images/afebrio-keynote.jpg`,
-  },
-  {
     title: "Organization Speech & Ceremony Leadership",
     sub: "Video recorded during Overclock 2025",
     src: `${BASE_PATH}/videos/pidato_leadership.mp4`,
-    poster: `${BASE_PATH}/images/afebrio-kabinet.jpg`,
+  },
+  {
+    title: "Keynote Speech & Public Relations Closing",
+    sub: "Recorded during CONNECTION HMTK annual event",
+    src: `${BASE_PATH}/videos/keynote_speech.mp4`,
   },
 ];
 
@@ -82,7 +80,7 @@ export default function Experience() {
         <div className={styles.header}>
           <div>
             <p className="section-label" style={{ marginBottom: 12 }}>Career</p>
-            <h2 className={styles.title}>Experience &<br /><em>Leadership</em></h2>
+            <h2 className={styles.title}>Experience &amp;<br /><em>Leadership</em></h2>
           </div>
           <p className={styles.intro}>
             From government data labs to student org leadership —<br />
@@ -122,24 +120,23 @@ export default function Experience() {
           <div className="dashed-line" />
         </div>
 
-        {/* Video highlights */}
-        <div className={styles.videoGrid}>
+        {/* Hero-style stacked video highlights (top and bottom touching) */}
+        <div className={styles.heroVideoStack}>
           {videos.map((v, i) => (
-            <motion.div key={i} className={styles.videoCard} {...inView(0.3 + i * 0.1)}>
-              <div className={styles.videoMeta}>
-                <span className="section-label">Video Highlight</span>
-                <h3 className={styles.videoTitle}>{v.title}</h3>
-                <p className={styles.videoSub}>{v.sub}</p>
-              </div>
-              <div className={styles.videoWrap}>
-                <video
-                  src={v.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className={styles.video}
-                />
+            <motion.div key={i} className={styles.heroVideoCard} {...inView(0.3 + i * 0.1)}>
+              <video
+                src={v.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={styles.heroVideoBg}
+              />
+              <div className={styles.heroVideoOverlay} />
+              <div className={styles.heroVideoContent}>
+                <span className={styles.heroVideoBadge}>Video Highlight</span>
+                <h3 className={styles.heroVideoTitle}>{v.title}</h3>
+                <p className={styles.heroVideoSub}>{v.sub}</p>
               </div>
             </motion.div>
           ))}

@@ -106,20 +106,19 @@ export default function Connection() {
 
         <div className="dashed-line" style={{ margin: "48px 0" }} />
 
-        {/* Videos (No Captions) */}
-        <div className={styles.videoGrid}>
+        {/* Side-by-Side Flush Hero Videos (1 | 2 Mentok Kiri Kanan, No Gap) */}
+        <div className={styles.heroVideoRow}>
           {videos.map((v, i) => (
-            <motion.div key={i} className={styles.videoCard} {...inView(0.2 + i * 0.1)}>
-              <div className={styles.videoWrap}>
-                <video
-                  src={v.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className={styles.video}
-                />
-              </div>
+            <motion.div key={i} className={styles.heroVideoCard} {...inView(0.2 + i * 0.1)}>
+              <video
+                src={v.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={styles.heroVideoBg}
+              />
+              <div className={styles.heroVideoOverlay} />
             </motion.div>
           ))}
         </div>
