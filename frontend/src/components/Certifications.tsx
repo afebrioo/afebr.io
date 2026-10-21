@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react";
 import styles from "./Certifications.module.css";
 
 const certs = [
+
   { id: "ibm-data",       title: "Getting Started with Data",           issuer: "IBM",              date: "Jul 2026", link: "https://linkedin.com/in/afebrioo", category: "Data Science" },
   { id: "nvidia-dl",      title: "Fundamentals of Deep Learning",       issuer: "NVIDIA",           date: "Oct 2025", link: "https://linkedin.com/in/afebrioo", category: "Deep Learning" },
   { id: "dicoding-viz",   title: "Belajar Dasar Visualisasi Data",      issuer: "Dicoding",         date: "Feb 2025", link: "https://linkedin.com/in/afebrioo", category: "Data Viz" },
@@ -41,7 +42,7 @@ const volunteering = [
 const inView = (i = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
+  viewport: { once: true, amount: 0.05 },
   transition: { duration: 0.6, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] as const },
 });
 
@@ -51,8 +52,10 @@ export default function Certifications() {
       {/* Certifications */}
       <section id="certifications" className="section-light">
         <div className="container">
-          <p className="section-label" style={{ marginBottom: 14 }}>Credentials</p>
-          <h2 className={styles.secTitle}>Certifications</h2>
+          <p className="sec-index" style={{ marginBottom: 14 }}>( 06 ) Credentials</p>
+          <motion.h2 className={styles.secTitle} {...inView(0)}>
+            Professional <span className={styles.secTitleAccent}>Certifications.</span>
+          </motion.h2>
 
           <div className={styles.certGrid}>
             {certs.map((cert, i) => (
@@ -67,9 +70,9 @@ export default function Certifications() {
               >
                 <div className={styles.certTop}>
                   <span className={styles.certCategory}>{cert.category}</span>
-                  <ExternalLink size={13} className={styles.certArrow} />
+                  <ExternalLink size={14} className={styles.certArrow} />
                 </div>
-                <div className="dashed-line" style={{ margin: "14px 0" }} />
+                <div className="dashed-line" style={{ margin: "16px 0" }} />
                 <h3 className={styles.certTitle}>{cert.title}</h3>
                 <div className={styles.certBottom}>
                   <span className={styles.certIssuer}>{cert.issuer}</span>
@@ -81,11 +84,14 @@ export default function Certifications() {
         </div>
       </section>
 
-      {/* Community & Volunteering (Text-only clean cards) */}
+      {/* Community & Volunteering */}
       <section id="volunteering" className="section-alt">
         <div className="container">
-          <p className="section-label" style={{ marginBottom: 14 }}>Community</p>
-          <h2 className={styles.secTitle}>Volunteering &amp; <em>Leadership</em></h2>
+          <p className="sec-index" style={{ marginBottom: 14 }}>( 07 ) Community</p>
+          <motion.h2 className={styles.secTitle} {...inView(0)}>
+            Volunteering &amp; <span className={styles.secTitleAccent}>Leadership.</span>
+          </motion.h2>
+
 
           <div className={styles.volGrid}>
             {volunteering.map((v, i) => (

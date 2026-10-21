@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import styles from "./Projects.module.css";
+import { mediaReveal } from "./motion/Reveal";
 
 const BASE_PATH = "/afebr.io";
+
 
 const projects = [
   {
@@ -106,9 +108,12 @@ export default function Projects() {
         {/* Header */}
         <div className={styles.header}>
           <div>
-            <p className="section-label" style={{ marginBottom: 12 }}>Portfolio</p>
-            <h2 className={styles.title}>Selected<br /><em>Work</em></h2>
+            <p className="sec-index" style={{ marginBottom: 12 }}>( 02 ) Portfolio</p>
+            <motion.h2 className={styles.title} {...inView(0)}>
+              Selected <span className={styles.titleAccent}>Works.</span>
+            </motion.h2>
           </div>
+
           <a
             href="https://github.com/afebrioo"
             target="_blank"
@@ -122,9 +127,15 @@ export default function Projects() {
 
         {/* Featured project */}
         <motion.div className={styles.featured} id="project-sigigi" {...inView(0)}>
-          <div className={styles.featuredImg}>
+          <motion.div className={styles.featuredImg} {...mediaReveal(0.15, "left")}>
+            <div className={styles.featBadge}>
+              <span className={styles.recDot} />
+              <span>FEATURED SHOWCASE</span>
+            </div>
             <img src={projects[0].image!} alt={projects[0].name} className={styles.featuredImgEl} />
-          </div>
+            <div className={styles.cornerTR} />
+            <div className={styles.cornerBL} />
+          </motion.div>
           <div className={styles.featuredMeta}>
             <div className={styles.featuredTop}>
               <span className={styles.featNum}>{projects[0].num} / {projects[0].total}</span>
@@ -145,7 +156,7 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        <div className="dashed-line" style={{ margin: "48px 0" }} />
+        <div className="dashed-line" style={{ margin: "56px 0" }} />
 
         {/* Remaining projects */}
         <div className={styles.list}>

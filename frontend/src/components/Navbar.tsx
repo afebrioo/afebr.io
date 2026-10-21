@@ -35,39 +35,49 @@ export default function Navbar() {
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`} role="navigation" aria-label="Main navigation">
-        {/* Left: avatar + name */}
-        <a href="#hero" className={styles.brand} id="nav-brand" onClick={close}>
-          <img
-            src={`${BASE_PATH}/images/afebrio-profpic.jpg`}
-            alt="Afebrio"
-            className={styles.avatar}
-          />
-          <span className={styles.brandName}>afebrio<span className={styles.brandDot}>.</span></span>
-        </a>
+        <div className={styles.navContainer}>
+          {/* Left: avatar + name */}
+          <a href="#hero" className={styles.brand} id="nav-brand" onClick={close}>
+            <img
+              src={`${BASE_PATH}/images/afebrio-profpic.jpg`}
+              alt="Afebrio"
+              className={styles.avatar}
+            />
+            <span className={styles.brandName}>afebrio<span className={styles.brandDot}>.</span></span>
+          </a>
 
-        {/* Center: nav links (desktop) */}
-        <ul className={styles.links} role="list">
-          {links.map(({ href, label }) => (
-            <li key={href}>
-              <a href={href} className={styles.link} id={`nav-${label.toLowerCase()}`}>
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          {/* Center: nav links (desktop) */}
+          <ul className={styles.links} role="list">
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} className={styles.link} id={`nav-${label.toLowerCase()}`}>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        {/* Right: hamburger */}
-        <button
-          className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ""}`}
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          id="nav-hamburger"
-        >
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-        </button>
+          {/* Right: CTA button + Hamburger */}
+          <div className={styles.rightGroup}>
+            <a href="#contact" className={styles.ctaBtn} id="nav-cta-btn">
+              <span>Let&apos;s Talk</span>
+              <span className={styles.ctaDot} />
+            </a>
+
+            <button
+              className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ""}`}
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              id="nav-hamburger"
+            >
+              <span className={styles.bar} />
+              <span className={styles.bar} />
+            </button>
+          </div>
+        </div>
       </nav>
+
 
       {/* Mobile Fullscreen Menu */}
       <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`} role="dialog" aria-modal="true">

@@ -1,5 +1,27 @@
 import type { Metadata } from "next";
+import { Poppins, Space_Mono, Syne } from "next/font/google";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Rahmanda Afebrio — AI/ML Engineer · Data Scientist",
@@ -9,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Rahmanda Afebrio Yuris Soesatyo" }],
   openGraph: {
     title: "Rahmanda Afebrio — AI/ML Engineer",
-    description: "Editorial portfolio with AI chat assistant. Building intelligent systems at the intersection of data and engineering.",
+    description: "Portfolio with AI showcase. Building intelligent systems at the intersection of data and engineering.",
     type: "website",
   },
 };
@@ -18,10 +40,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${poppins.variable} ${spaceMono.variable} ${syne.variable}`} suppressHydrationWarning>
       <body>
         {children}
       </body>
     </html>
   );
 }
+

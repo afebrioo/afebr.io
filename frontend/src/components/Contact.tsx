@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
+
 const socials = [
   { href: "https://github.com/afebrioo",     Icon: FaGithub,     label: "GitHub",    handle: "afebrioo",  id: "contact-github" },
   { href: "https://linkedin.com/in/afebrioo", Icon: FaLinkedinIn, label: "LinkedIn",  handle: "afebrioo",  id: "contact-linkedin" },
@@ -11,10 +12,10 @@ const socials = [
 ];
 
 const inView = (i = 0) => ({
-  initial: { opacity: 0, y: 28 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] as const },
+  viewport: { once: true, amount: 0.05 },
+  transition: { duration: 0.65, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
 });
 
 export default function Contact() {
@@ -24,16 +25,19 @@ export default function Contact() {
         {/* CTA heading */}
         <motion.div className={styles.ctaBlock} {...inView(0)}>
           <div className={styles.ctaBadgeRow}>
-            <span className={styles.ctaLabelBadge}>Get in Touch</span>
+            <span className={styles.ctaLabelBadge}>
+              <span className={styles.availDot} />
+              GET IN TOUCH
+            </span>
           </div>
-          <h2 className={styles.ctaHeading}>
-            Let&apos;s work<br />
-            <em>together.</em>
-          </h2>
+          <motion.h2 className={styles.ctaHeading} {...inView(0.1)}>
+            Let’s Build <span className={styles.ctaHeadingAccent}>Together.</span>
+          </motion.h2>
           <p className={styles.ctaSub}>
             I&apos;m open to internships, full-time roles, and freelance projects.
             Let&apos;s build something meaningful.
           </p>
+
           <div className={styles.ctaBtnRow}>
             <a
               href="mailto:rahmandaafebrioyuris@gmail.com"
@@ -91,7 +95,7 @@ export default function Contact() {
       <div className={styles.footer}>
         <div className="container">
           <div className={styles.footerInner}>
-            <p className={styles.footerBrand}>afebrio<span>.</span></p>
+            <p className={styles.footerBrand}>afebrio<span className={styles.brandDot}>.</span></p>
             <p className={styles.footerStack}>Built with Next.js · FastAPI · LangGraph</p>
             <p className={styles.footerCopy}>© {new Date().getFullYear()} Rahmanda Afebrio</p>
           </div>

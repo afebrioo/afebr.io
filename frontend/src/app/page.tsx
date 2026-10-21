@@ -9,22 +9,39 @@ import Certifications from "@/components/Certifications";
 import Chat from "@/components/Chat";
 import Contact from "@/components/Contact";
 import CustomCursor from "@/components/CustomCursor";
+import Intro from "@/components/Intro";
+import ScrollFX from "@/components/motion/ScrollFX";
+import TapeBand from "@/components/motion/TapeBand";
 
 export default function Home() {
   return (
     <main>
-      <CustomCursor />
+      <Intro />
+      <ScrollFX />
       <Navbar />
       <Hero />
+
+      <TapeBand
+        top={["Data Science", "Machine Learning", "Computer Vision", "LLM Agents"]}
+        bottom={["Analyse", "Model", "Deploy", "Iterate"]}
+      />
       <About />
       <Projects />
       <Skills />
       <Experience />
+      <TapeBand
+        tone="dark"
+        top={["Lead", "Organise", "Inspire", "Connect"]}
+        bottom={["Community", "Leadership", "Impact", "Service"]}
+      />
       <Connection />
       <Certifications />
+      <TapeBand
+        top={["Let's Build", "Something", "Meaningful", "Together"]}
+        bottom={["Open to Work", "Aug 2026+", "Bandung", "Remote"]}
+      />
       <Contact />
       <Chat />
     </main>
   );
 }
-

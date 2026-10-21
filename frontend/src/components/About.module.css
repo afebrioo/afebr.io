@@ -1,7 +1,7 @@
 /* ── About Section ──────────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 380px 1fr;
   gap: 80px;
   align-items: start;
 }
@@ -13,12 +13,66 @@
 }
 
 .photoFrame {
+  position: relative;
   width: 100%;
   aspect-ratio: 4/5;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: var(--shadow-lg);
-  background: var(--cream-light);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+}
+
+.photoBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(7, 9, 14, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+}
+
+.recDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 6px var(--cyan);
+}
+
+.photoCornerTL {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photoCornerBR {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid var(--cyan);
+  border-left: 2px solid var(--cyan);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .photo {
@@ -31,23 +85,39 @@
 }
 
 .photoFrame:hover .photo {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .photoCaption {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 14px;
-  padding-top: 14px;
+  margin-top: 16px;
+  padding-top: 16px;
   border-top: 1px solid var(--border);
 }
 
+.captionName {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-1);
+}
+
+.captionLoc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
 .dot {
-  color: var(--text-muted);
+  color: var(--cyan);
   font-size: 18px;
   line-height: 1;
-  margin-top: -2px;
 }
 
 /* Text side */
@@ -57,96 +127,134 @@
 
 .heading {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--text-1);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
 }
 
-.heading em {
-  font-style: italic;
-  color: var(--earth);
+.headingAccent {
+  color: var(--blue);
+  font-weight: 800;
 }
 
 .bio {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 15.5px;
   color: var(--text-2);
-  line-height: 1.75;
-  margin-bottom: 36px;
-  max-width: 560px;
-}
-
-/* Philosophy items */
-.philosophies {
+  line-height: 1.8;
   margin-bottom: 40px;
+  max-width: 620px;
 }
 
-.philosophyItem {
-  padding-top: 6px;
+/* Philosophy Cards — Modern Studio Grid */
+.philosophies {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 44px;
 }
 
-.philosophyRow {
+.philosophyCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan-dark);
+  border-radius: 6px;
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+}
+
+.philosophyCard:hover {
+  background: #FFFFFF;
+  border-color: var(--border-strong);
+  border-left-color: var(--cyan);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 18px 0;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .philosophyNum {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--earth-muted);
-  padding-top: 3px;
-  flex-shrink: 0;
+  color: var(--blue);
   letter-spacing: 0.1em;
+}
+
+.philosophyTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
 }
 
 .philosophyText {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-2);
   line-height: 1.65;
 }
 
-/* CTA row */
+/* Bottom CTA row */
 .ctaRow {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 36px;
+  padding-top: 10px;
 }
 
 .ctaInfo {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
 }
 
 .ctaTitle {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
   color: var(--text-1);
 }
 
 .ctaSub {
-  font-family: var(--font-mono);
-  font-size: 10px;
+  font-family: var(--font-sans);
+  font-size: 13px;
   color: var(--text-3);
-  letter-spacing: 0.06em;
+}
+
+.ctaHighlight {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;
     gap: 48px;
   }
   .photoSide {
     position: static;
-    max-width: 320px;
+    max-width: 380px;
+  }
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 }
