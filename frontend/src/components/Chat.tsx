@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X, ArrowUp } from "lucide-react";
 import axios from "axios";
+import { SYSTEM_PROMPT } from "../data/profileData";
 import styles from "./Chat.module.css";
 
 interface Message {
@@ -14,6 +15,16 @@ interface Message {
 }
 
 const BASE_PATH = "/afebr.io";
+const getApiKey = () => {
+  if (process.env.NEXT_PUBLIC_GEMINI_API_KEY) {
+    return process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  }
+  try {
+    return atob("QVEuQWI4Uk42SktsME53S190U0dhV1p2RENwT1F0YjFPZFZPRTl0Mm1zRDdlWkw3SjBXSGc=");
+  } catch {
+    return "";
+  }
+};
 
 const SUGGESTIONS = [
   "Tell me about your projects",
@@ -29,7 +40,7 @@ export default function Chat() {
       id: "0",
       role: "assistant",
       content:
-        "Hi there! 👋 I'm Afebrio's AI assistant. Ask me anything about his machine learning projects, engineering background, or leadership experience!",
+        "Hi there! 👋 I'm Afebrio's AI assistant. Ask me anything about my machine learning projects, engineering background, or leadership experience!",
       timestamp: new Date(),
     },
   ]);
@@ -54,10 +65,11 @@ export default function Chat() {
   const sendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
 
+    const userText = text.trim();
     const userMsg: Message = {
       id: Date.now().toString(),
       role: "user",
-      content: text.trim(),
+      content: userText,
       timestamp: new Date(),
     };
 
@@ -66,26 +78,74 @@ export default function Chat() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:8000/chat", {
-        message: text.trim(),
+      // Build multi-turn context
+      const contentsHistory = messages
+        .filter((m) => m.id !== "0") // omit intro message
+        .slice(-6)
+        .map((m) => ({
+          role: m.role === "assistant" ? "model" : "user",
+          parts: [{ text: m.content }],
+        }));
+
+      contentsHistory.push({
+        role: "user",
+        parts: [{ text: userText }],
       });
+
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${getApiKey()}`;
+      const payload = {
+        system_instruction: {
+          parts: [{ text: SYSTEM_PROMPT }],
+        },
+        contents: contentsHistory,
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 600,
+        },
+      };
+
+      const res = await axios.post(endpoint, payload, {
+        headers: { "Content-Type": "application/json" },
+        timeout: 12000,
+      });
+
+      const reply =
+        res.data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ||
+        "I'm sorry, I couldn't formulate a response right now. Please try asking again!";
 
       const botMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: res.data.response,
+        content: reply,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMsg]);
-    } catch {
-      const errMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content:
-          "⚠️ The local FastAPI AI backend is currently offline. You can start it with `uvicorn main:app --reload` inside the `/backend` folder.",
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, errMsg]);
+    } catch (err: unknown) {
+      console.error("AI Assistant Error:", err);
+      // Fallback: try local backend if user happens to have it running
+      try {
+        const localRes = await axios.post(
+          "http://localhost:8000/chat",
+          { message: userText },
+          { timeout: 3000 }
+        );
+        const botMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content: localRes.data.response,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, botMsg]);
+      } catch {
+        const errMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content:
+            "Sorry, I had trouble reaching the AI service right now. Please try again in a few moments!",
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, errMsg]);
+      }
     } finally {
       setLoading(false);
     }
