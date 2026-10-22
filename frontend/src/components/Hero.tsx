@@ -119,9 +119,9 @@ export default function Hero() {
           <motion.div className={styles.focusLine} {...enter(0.62)}>
             <span className={styles.focusLabel}>Core Domains</span>
             <span className={styles.focusSep}>—</span>
-            <span className={styles.focusItem}>Machine Learning</span>
+            <span className={styles.focusItem}>Artificial Intelligence</span>
             <span className={styles.focusDot}>·</span>
-            <span className={styles.focusItem}>Computer Vision</span>
+            <span className={styles.focusItem}>Data Science</span>
             <span className={styles.focusDot}>·</span>
             <span className={styles.focusItem}>Full-Stack Systems</span>
           </motion.div>
