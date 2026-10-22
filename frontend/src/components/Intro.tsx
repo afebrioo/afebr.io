@@ -234,17 +234,8 @@ export default function Intro() {
           )}
         </AnimatePresence>
 
-        {/* Viewfinder HUD */}
+        {/* Minimal Progress Counter */}
         <div className={styles.hud}>
-          <span className={`${styles.corner} ${styles.tl}`} />
-          <span className={`${styles.corner} ${styles.tr}`} />
-          <span className={`${styles.corner} ${styles.bl}`} />
-          <span className={`${styles.corner} ${styles.br}`} />
-          <span className={styles.rec}><i /> LIVE 4K</span>
-          <span className={styles.timecode}>{fmtTimecode(elapsed)}</span>
-          <span className={styles.frameNo}>
-            {phase === "cuts" ? `FRAME ${String(cutIdx + 1).padStart(2, "0")} / ${String(CUTS.length).padStart(2, "0")}` : "SHOWREEL TITLE"}
-          </span>
           <span className={styles.counter}>{String(count).padStart(3, "0")}<sup>%</sup></span>
         </div>
       </div>
