@@ -228,7 +228,7 @@ export default function Intro() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
               >
-                AI / ML ENGINEER · DATA SCIENTIST · SHOWREEL ’26
+                AI / ML ENGINEER · DATA SCIENTIST
               </motion.p>
             </motion.div>
           )}
