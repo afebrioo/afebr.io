@@ -12,6 +12,7 @@ import CustomCursor from "@/components/CustomCursor";
 import Intro from "@/components/Intro";
 import ScrollFX from "@/components/motion/ScrollFX";
 import TapeBand from "@/components/motion/TapeBand";
+import QuoteSection from "@/components/QuoteSection";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         bottom={["Analyse", "Model", "Deploy", "Iterate"]}
       />
       <About />
+      <QuoteSection />
       <Projects />
       <Skills />
       <Experience />

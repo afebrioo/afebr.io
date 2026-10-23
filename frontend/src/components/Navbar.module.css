@@ -236,7 +236,7 @@
 }
 
 .mobileLinkNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 13px;
   color: var(--cyan);
 }

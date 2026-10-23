@@ -52,11 +52,6 @@ export default function About() {
               <div className={styles.photoCornerTL} />
               <div className={styles.photoCornerBR} />
             </motion.div>
-            <div className={styles.photoCaption}>
-              <span className={styles.captionName}>Rahmanda Afebrio</span>
-              <span className={styles.dot}>·</span>
-              <span className={styles.captionLoc}>Bandung, ID</span>
-            </div>
           </motion.div>
 
           {/* Right: Bio + Philosophy */}
